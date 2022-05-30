@@ -5,8 +5,7 @@ module.exports = {
     'vue/setup-compiler-macros': true // 处理直接使用 defineProps、defineEmits报错问题
   },
   globals: {
-    SysTyping: true,
-    UserTyping: true
+    SysGlobalConfig: true
   },
   extends: [
     'plugin:vue/essential',

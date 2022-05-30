@@ -1,8 +1,7 @@
 <template>
-  <div>VPlus Admin</div>
-  <div>你好呀</div>
-  <div>梦幻字体</div>
-  <div>Hello World</div>
+  <div>{{ SysGlobalConfig.title }}</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import SysGlobalConfig from './SysGlobalConfig'
+</script>
