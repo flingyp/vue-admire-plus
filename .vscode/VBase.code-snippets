@@ -1,0 +1,21 @@
+{
+  "SFC文件模板": {
+    "scope": "",
+    "prefix": "vbase",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    <!-- 内容 -->",
+      "  </div>",
+      "</template>",
+      "",
+      "<script setup lang=\"ts\">",
+      "import {} from \"vue\";",
+      "</script>",
+      "",
+      "<style scoped></style>",
+      ""
+    ],
+    "description": "代码片段：SFC文件"
+  }
+}
