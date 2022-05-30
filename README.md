@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://gitee.com/xiaopeng77/typora-img/raw/master/img/VPlusAdminLogo.png" alt="VueAdminPro Logo" style="zoom:67%;" />
+	<img width="200" height="200" src="https://gitee.com/xiaopeng77/typora-img/raw/master/img/VPlusAdminLogo.png" alt="VPlus Admin Logo" />
   <h1>
     VPlus Admin
   </h1>
