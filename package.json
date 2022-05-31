@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "lint:eslint": "eslint --cache --max-warnings 0 \"{src,mock}/**/*.{vue,js,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,sass}\"",
     "prepare": "husky install",
     "commit": "git-cz"
   },
@@ -35,6 +36,9 @@
     "husky": "^7.0.0",
     "lint-staged": "^12.4.2",
     "prettier": "^2.6.2",
+    "stylelint": "^14.8.5",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
     "typescript": "^4.7.2",
     "unplugin-auto-import": "^0.8.6",
     "unplugin-icons": "^0.14.3",
@@ -57,6 +61,10 @@
       "prettier --write"
     ],
     "*.md": [
+      "prettier --write"
+    ],
+    "*.{css,scss,less,sass,html,vue}": [
+      "stylelint --fix",
       "prettier --write"
     ]
   },

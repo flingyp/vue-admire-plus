@@ -7,7 +7,6 @@ html {
 html,
 body,
 div,
-object,
 iframe,
 applet,
 object,
@@ -154,7 +153,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 button,
