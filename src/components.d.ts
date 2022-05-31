@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
     IconifyCom: typeof import('./components/IconifyCom.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SvgFileCom: typeof import('./components/SvgFileCom.vue')['default']
   }
 }
 

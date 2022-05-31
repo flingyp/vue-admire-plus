@@ -4,11 +4,7 @@ import App from './App.vue'
 
 import { initRouter } from '@/router'
 import { initStore } from '@/store'
-
-// 浏览器默认样式重置文件
-import '@/style/ResetStyle.css'
-// WindiCSS 样式文件
-import 'virtual:windi.css'
+import initStyle from '@/style'
 
 /**
  * 初始化应用
@@ -25,6 +21,9 @@ const initApplication = async () => {
 
   // 初始化状态管理
   initStore(app)
+
+  // 初始化相关样式
+  initStyle()
 
   // 实例挂载
   app.mount('#app')
