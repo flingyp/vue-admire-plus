@@ -1,12 +1,17 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { App } from 'vue'
+
+import ConstantRoutes from './modules/ConstantRoutes'
+import transformVPlusToVRouterRecordRaw from './utils/TransformVPlusRoute'
+
+// console.log(transformVPlusToVRouterRecordRaw(ConstantRoutes))
 
 /**
  * 路由实例
  */
 const routerInstance = createRouter({
   history: createWebHashHistory(),
-  routes: []
+  routes: transformVPlusToVRouterRecordRaw(ConstantRoutes)
 })
 
 /**
