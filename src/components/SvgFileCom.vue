@@ -9,7 +9,7 @@
 
   interface SvgFileComProps {
     name: string
-    color: string
+    color?: string
   }
 
   const props = withDefaults(defineProps<SvgFileComProps>(), {

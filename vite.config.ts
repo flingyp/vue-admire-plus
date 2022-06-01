@@ -32,6 +32,10 @@ export default (config: UserConfigExport): UserConfigExport => {
         '@': resolve(__dirname, 'src')
       }
     },
+    server: {
+      host: true,
+      cors: true
+    },
     plugins: [
       vue(),
       WindiCSS(),
