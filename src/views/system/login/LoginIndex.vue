@@ -1,8 +1,8 @@
 <template>
-  <div class="login-page-box w-screen h-screen max-w-screen max-h-screen overflow-hidden">
+  <div class="login-page-box">
     <!-- Logo 和 Title -->
     <el-container
-      class="transition-all duration-200 ease-linear flex items-center absolute mt-[1rem] ml-[1.5rem] <2xl:(left-[50%] transform translate-x-[-50%])"
+      class="transition-all duration-200 ease-linear flex items-center absolute mt-[1rem] ml-[1.5rem] <2xl:(left-[50%] mt-[1.5rem] transform translate-x-[-50%])"
     >
       <img
         :src="`${SysStore.SysBaseConfig.logo}`"
@@ -11,14 +11,14 @@
         w:w="w-[2rem]"
         w:m="r-2"
       />
-      <span w:text="[1.4rem]" w:font="medium" class="<2xl:(text-[1.8rem])">{{ SysStore.SysBaseConfig.title }}</span>
+      <span w:text="[1rem]" w:font="medium" class="<2xl:(text-[1.5rem])">{{ SysStore.SysBaseConfig.title }}</span>
     </el-container>
 
     <!-- SVG -->
     <el-container
       w:w="[45rem]"
       w:h="[50rem]"
-      class="absolute top-[50%] transform translate-y-[-50%] left-[10%] !<2xl:(hidden)"
+      class="opaicty absolute top-[50%] transform translate-y-[-50%] left-[10%] !<2xl:(opacity-0)"
     >
       <SvgFileCom name="login-sys-symbol" class="w-full h-full"></SvgFileCom>
     </el-container>

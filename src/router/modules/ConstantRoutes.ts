@@ -16,6 +16,14 @@ const ConstantRoutes: SysRouter.VPlusRoute[] = [
     meta: {
       label: '测试页面'
     }
+  },
+  {
+    path: '/layout',
+    name: 'Layout',
+    component: 'Layout',
+    meta: {
+      label: '布局页面'
+    }
   }
 ]
 

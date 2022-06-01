@@ -2,14 +2,40 @@ import { defineStore } from 'pinia'
 
 import { SysBaseConfig } from '../../SysGlobalConfig'
 
-interface SysStoreState {
+import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
+
+interface ISysStoreState {
   SysBaseConfig: SysGlobalConfig.SysBaseConfig
+  SysConfig: SysGlobalConfig.SysConfig
 }
 
 export const UseSysStore = defineStore('SysStore', {
-  state(): SysStoreState {
-    return {
-      SysBaseConfig
+  state(): ISysStoreState {
+    const SysStoreState = {
+      SysBaseConfig,
+      SysConfig: {
+        layoutMode: (getLocalKey('layoutMode') as SysGlobalConfig.SysLayoutMode) || SysBaseConfig.layoutMode,
+        leftMenuIsCollapsed: false
+      }
+    }
+
+    return SysStoreState
+  },
+  actions: {
+    /**
+     * 设置左侧菜单是否收缩
+     * @param value
+     */
+    setLeftMenuIsCollapsed(value: boolean) {
+      this.SysConfig.leftMenuIsCollapsed = value
+    },
+    /**
+     * 设置系统布局组件
+     * @param value
+     */
+    setLayoutMode(value: SysGlobalConfig.SysLayoutMode) {
+      setLocalKey('layoutMode', value)
+      this.SysConfig.layoutMode = value
     }
   }
 })
