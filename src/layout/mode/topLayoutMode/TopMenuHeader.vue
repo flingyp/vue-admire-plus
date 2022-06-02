@@ -15,7 +15,6 @@
 
 <script setup lang="ts">
   import GlobalTitleLogo from '@/layout/global/GlobalTitleLogo.vue'
-  import GlobalHorizontalMenu from '@/layout/global/GlobalHorizontalMenu.vue'
   import GlobalMenu from '@/layout/global/GlobalMenu.vue'
 
   import { UseSysStore } from '@/store/modules/SysStore'

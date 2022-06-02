@@ -10,6 +10,8 @@ import Icons from 'unplugin-icons/vite'
 
 import WindiCSS from 'vite-plugin-windicss'
 
+import { viteMockServe } from 'vite-plugin-mock'
+
 import { resolve } from 'path'
 
 /**
@@ -38,6 +40,7 @@ export default (config: UserConfigExport): UserConfigExport => {
     },
     plugins: [
       vue(),
+      viteMockServe(),
       WindiCSS(),
       AutoImport({
         // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等

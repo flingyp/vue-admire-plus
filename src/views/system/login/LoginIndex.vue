@@ -16,9 +16,9 @@
 
     <!-- SVG -->
     <el-container
-      w:w="[45rem]"
-      w:h="[50rem]"
-      class="opaicty absolute top-[50%] transform translate-y-[-50%] left-[10%] !<2xl:(opacity-0)"
+      w:w="[40rem]"
+      w:h="[40rem]"
+      class="!transition-all duration-500 ease-linear absolute top-[50%] transform translate-y-[-50%] left-[10%] !<2xl:(w-0 h-0)"
     >
       <SvgFileCom name="login-sys-symbol" class="w-full h-full"></SvgFileCom>
     </el-container>
@@ -32,7 +32,7 @@
       w:bg="[#FFF]"
       w:p="[3rem]"
       w:rounded="[1rem]"
-      class="<md:(w-[400px]) <xl:(w-[450px]) <2xl:(w-[600px] left-[50%] translate-x-[-50%] translate-y-[-50%]) shadow-xl absolute right-[10%] top-[50%] transform translate-y-[-50%] overflow-hidden transition-all duration-200 ease-linear"
+      class="!transition-all duration-500 ease-linear shadow-xl absolute right-[10%] top-[50%] transform translate-y-[-50%] overflow-hidden <md:(w-[400px]) <xl:(w-[450px]) <2xl:(w-[600px] left-[50%] translate-x-[-50%] translate-y-[-50%])"
     >
       <h1 class="text-[2rem] font-bold font-serif mb-[1.5rem]">登录</h1>
       <el-form ref="LoginFormRef" size="large" :model="LoginModel" :rules="LoginRules">
@@ -96,6 +96,9 @@
 </script>
 
 <style scoped>
+  * {
+    transition: all 0s;
+  }
   .login-page-box {
     background-image: linear-gradient(300deg, #e4f6ff, #f9feff);
   }

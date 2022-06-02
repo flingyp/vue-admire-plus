@@ -29,6 +29,14 @@ const ConstantRoutes: SysRouter.VPlusRoute[] = [
     ]
   },
   {
+    path: '/request',
+    name: 'Request',
+    component: '@/views/test/TestRequest.vue',
+    meta: {
+      label: '测试请求'
+    }
+  },
+  {
     path: '/layout',
     name: 'Layout',
     component: 'Layout',
