@@ -6,23 +6,35 @@ const ConstantRoutes: SysRouter.VPlusRoute[] = [
     name: 'LoginIndex',
     component: '@/views/system/login/LoginIndex.vue',
     meta: {
-      label: '登录页面'
+      label: '登录页面',
+      isShow: false
     }
   },
   {
     path: '/test',
-    name: 'TestIndex',
-    component: '@/views/test/TestIndex.vue',
+    name: 'Test',
+    component: 'Layout',
     meta: {
-      label: '测试页面'
-    }
+      label: '测试'
+    },
+    children: [
+      {
+        path: '',
+        name: 'TestIndex',
+        component: '@/views/test/TestIndex.vue',
+        meta: {
+          label: '测试页面'
+        }
+      }
+    ]
   },
   {
     path: '/layout',
     name: 'Layout',
     component: 'Layout',
     meta: {
-      label: '布局页面'
+      label: '布局页面',
+      isShow: false
     }
   }
 ]

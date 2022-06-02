@@ -8,8 +8,4 @@ interface BaseConfig {
 namespace SysGlobalConfig {
   type SysLayoutMode = LayoutMode
   type SysBaseConfig = BaseConfig
-  interface SysConfig {
-    layoutMode: LayoutMode // 布局模式
-    leftMenuIsCollapsed: boolean // 左侧菜单布局模式是否收缩
-  }
 }

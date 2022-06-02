@@ -1,5 +1,5 @@
 <template>
-  <basicSlot>
+  <BasicLayoutSlot>
     <template #header>
       <keep-alive>
         <Component :is="CurrentLayoutModeHeader"></Component>
@@ -12,25 +12,27 @@
       </KeepAlive>
     </template>
     <template #main>
-      <Component :is="GlobalMainContent"></Component>
+      <KeepAlive>
+        <Component :is="GlobalMainContent"></Component>
+      </KeepAlive>
     </template>
-  </basicSlot>
+  </BasicLayoutSlot>
 </template>
 
 <script setup lang="ts">
   import { computed } from 'vue'
 
   // 系统基础布局组件
-  import basicSlot from './basicSlot.vue'
+  import BasicLayoutSlot from './BasicLayoutSlot.vue'
 
   // 各布局的头部组件
-  import LeftMenuHeader from '../mode/leftMenu/LeftMenuHeader.vue'
-  import TopMenuHeader from '../mode/topMenu/TopMenuHeader.vue'
-  import TopMixMenuHeader from '../mode/topMixMenu/TopMixMenuHeader.vue'
+  import LeftMenuHeader from '../mode/leftLayoutMode/LeftMenuHeader.vue'
+  import TopMenuHeader from '../mode/topLayoutMode/TopMenuHeader.vue'
+  import TopMixMenuHeader from '../mode/topMixLayoutMode/TopMixMenuHeader.vue'
 
   // 各布局的侧边栏组件
-  import LeftMenuAside from '../mode/leftMenu/LeftMenuAside.vue'
-  import TopMixMenuAside from '../mode/topMixMenu/TopMixMenuAside.vue'
+  import LeftMenuAside from '../mode/leftLayoutMode/LeftMenuAside.vue'
+  import TopMixMenuAside from '../mode/topMixLayoutMode/TopMixMenuAside.vue'
 
   // 系统的主内容区域
   import GlobalMainContent from '../global/GlobalMainContent.vue'

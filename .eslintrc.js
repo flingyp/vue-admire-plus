@@ -6,7 +6,8 @@ module.exports = {
   },
   globals: {
     SysGlobalConfig: true,
-    SysRouter: true
+    SysRouter: true,
+    SysConfig: true
   },
   extends: [
     'plugin:vue/essential',
@@ -21,6 +22,7 @@ module.exports = {
   plugins: ['vue', '@typescript-eslint'],
   rules: {
     'vue/no-multiple-template-root': 'off', // 关闭对Vue文件唯一节点的检测
+    'vue/no-v-for-template-key': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'vue/no-v-model-argument': 'off',

@@ -6,7 +6,7 @@ import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 interface ISysStoreState {
   SysBaseConfig: SysGlobalConfig.SysBaseConfig
-  SysConfig: SysGlobalConfig.SysConfig
+  SysConfig: SysConfig.Config
 }
 
 export const UseSysStore = defineStore('SysStore', {

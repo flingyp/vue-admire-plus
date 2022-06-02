@@ -29,6 +29,7 @@
         <slot name="aside"> 侧边栏 </slot>
       </el-aside>
 
+      <!-- 所有布局模式-公共部分 -->
       <el-main>
         <slot name="main"> 内容部分 </slot>
       </el-main>
@@ -43,29 +44,34 @@
 
   const SysStore = UseSysStore()
 
+  // 判断是否是左侧菜单布局 - （左侧菜单）
   const IsLeftMenuAside = computed(() => {
     if (SysStore.SysConfig.layoutMode === 'LEFT_MENU_MODE' || SysStore.SysConfig.layoutMode === 'LEFT_MENU_MIX_MODE')
       return true
     return false
   })
 
+  // 判断是否是顶部菜单布局  - （顶部头部）
   const IsTopAndTopMixHeader = computed(() => {
     if (SysStore.SysConfig.layoutMode === 'TOP_MENU_MODE' || SysStore.SysConfig.layoutMode === 'TOP_MIX_MENU_MODE')
       return true
     return false
   })
 
+  // 判断是否是左侧菜单布局 -（左侧头部）
   const IsLeftHeader = computed(() => {
     if (SysStore.SysConfig.layoutMode === 'LEFT_MENU_MODE' || SysStore.SysConfig.layoutMode === 'LEFT_MENU_MIX_MODE')
       return true
     return false
   })
 
+  // 判断是不是顶部混合布局模式 - （顶部混合布局-左侧菜单）
   const IsTopMixAside = computed(() => {
     if (SysStore.SysConfig.layoutMode === 'TOP_MIX_MENU_MODE') return true
     return false
   })
 
+  // 控制左侧菜单收缩宽度
   const LeftAsideWidth = computed(() => {
     if (SysStore.SysConfig.leftMenuIsCollapsed) {
       return '64px'
