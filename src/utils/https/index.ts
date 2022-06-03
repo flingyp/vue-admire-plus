@@ -3,12 +3,12 @@
  * 1. 可创建多个Axios实例
  * 2. 完成请求拦截器、响应拦截器 （给请求实例添加拦截器）
  * 3. 封装统一请求方法
- * 4. 错误处理
- * 5. 取消请求
- * 6. 配合ElementPlus Loading组件完成 数据加载的效果
+ * 4. 配合ElementPlus Loading组件完成 数据加载的效果
  */
 
 import { YPlusRequestParams } from 'types/ExtendAxiosInstance'
+
+import { ElLoading } from 'element-plus'
 
 import AxiosRequest from './CreateRequestInstance'
 
@@ -19,7 +19,7 @@ import AxiosRequest from './CreateRequestInstance'
 const DefaultRequestInstance = () => {
   const Request = new AxiosRequest({
     baseURL: 'http://192.168.1.104:3000/',
-    timeout: 1000
+    timeout: 10000
   })
 
   /**
@@ -47,17 +47,27 @@ const DefaultRequestInstance = () => {
    * @param R：返回的数据格式
    * @returns
    */
-  RequestInstance.YPlusRequest = <R>(params: YPlusRequestParams) => {
-    let IsGetParams = false
-    if (params.method === 'GET' || params.method === 'get') {
-      IsGetParams = true
+  RequestInstance.YPlusRequest = async <R>(params: YPlusRequestParams): Promise<Awaited<R>> => {
+    let loadingInstance = null
+    // 加载Loading
+    if (params.isLoading) {
+      loadingInstance = ElLoading.service({
+        lock: true,
+        text: params.loadingText || '加载中...',
+        background: 'rgba(0, 0, 0, 0.7)'
+      })
     }
-    return RequestInstance.request<any, R>({
+    const Response = await RequestInstance.request<any, R>({
       url: params.url,
       method: params.method,
-      params: IsGetParams ? params.data : null,
-      data: !IsGetParams ? params.data : null
+      params: params.params,
+      data: params.data
     })
+    // 关闭Loading
+    if (params.isLoading) {
+      loadingInstance?.close()
+    }
+    return Response
   }
 
   return RequestInstance

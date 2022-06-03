@@ -14,12 +14,10 @@ export default [
   {
     url: '/api/post',
     method: 'post',
-    timeout: 2000,
+    timeout: 3000,
     response: {
-      code: 0,
-      data: {
-        name: 'vben'
-      }
+      name: 'VPlus',
+      version: '1.0.0'
     }
   },
   {
