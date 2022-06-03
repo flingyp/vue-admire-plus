@@ -6,7 +6,7 @@ module.exports = {
   },
   globals: {
     SysGlobalConfig: true,
-    SysRouter: true,
+    SysRouterMenu: true,
     SysConfig: true
   },
   extends: [

@@ -3,8 +3,7 @@ import { App } from 'vue'
 
 import ConstantRoutes from './modules/ConstantRoutes'
 import transformVPlusToVRouterRecordRaw from './utils/TransformVPlusRoute'
-
-// console.log(transformVPlusToVRouterRecordRaw(ConstantRoutes))
+import RouterBeforeEachHandle from './RouterBeforeEachHandle'
 
 /**
  * 路由实例
@@ -12,6 +11,13 @@ import transformVPlusToVRouterRecordRaw from './utils/TransformVPlusRoute'
 const routerInstance = createRouter({
   history: createWebHashHistory(),
   routes: transformVPlusToVRouterRecordRaw(ConstantRoutes)
+})
+
+/**
+ * 全局路由守卫
+ */
+routerInstance.beforeEach(async (to, from, next) => {
+  await RouterBeforeEachHandle(to, from, next, routerInstance)
 })
 
 /**

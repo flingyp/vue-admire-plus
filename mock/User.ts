@@ -1,4 +1,7 @@
 import { MockMethod } from 'vite-plugin-mock'
+import Mock from 'mockjs'
+
+const MockRandom = Mock.Random
 
 export default [
   {
@@ -11,6 +14,31 @@ export default [
           code: 200,
           msg: '操作成功',
           data: 'VPlus-Admin'
+        }
+      }
+      return {
+        code: 500,
+        msg: '操作失败',
+        data: ''
+      }
+    }
+  },
+  {
+    url: '/mock/user/info',
+    method: 'post',
+    response: ({ headers }) => {
+      if (headers.token === 'VPlus-Admin') {
+        return {
+          code: 200,
+          msg: '操作成功',
+          data: {
+            id: MockRandom.id(),
+            username: 'admin',
+            nickname: '超级管理员',
+            birthday: MockRandom.date(),
+            roles: ['admin'],
+            permissions: ['sys:root:*']
+          }
         }
       }
       return {

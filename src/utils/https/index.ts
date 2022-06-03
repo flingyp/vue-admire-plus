@@ -18,7 +18,7 @@ import AxiosRequest from './CreateRequestInstance'
  */
 const DefaultRequestInstance = () => {
   const Request = new AxiosRequest({
-    baseURL: 'http://192.168.1.104:3000/',
+    baseURL: 'http://192.168.43.80:3000/',
     timeout: 10000
   })
 
@@ -61,7 +61,8 @@ const DefaultRequestInstance = () => {
       url: params.url,
       method: params.method,
       params: params.params,
-      data: params.data
+      data: params.data,
+      headers: params.headers
     })
     // 关闭Loading
     if (params.isLoading) {

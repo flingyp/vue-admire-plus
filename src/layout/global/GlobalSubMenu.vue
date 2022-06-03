@@ -1,8 +1,8 @@
 <template>
   <!-- 单一菜单 -->
   <template v-if="!menu.children || menu.children.length === 0">
-    <el-menu-item :index="menu.key">
-      <el-icon>
+    <el-menu-item :index="menu.key" @click="clickLinkMenuItem">
+      <el-icon :size="20">
         <IconifyCom :name="menu.icon"></IconifyCom>
       </el-icon>
       <span>{{ menu.label }}</span>
@@ -10,9 +10,9 @@
   </template>
   <!-- 多菜单 -->
   <template v-else>
-    <el-sub-menu>
+    <el-sub-menu :index="menu.key">
       <template #title>
-        <el-icon>
+        <el-icon :size="20">
           <IconifyCom :name="menu.icon"></IconifyCom>
         </el-icon>
         <span>{{ menu.label }}</span>
@@ -25,9 +25,18 @@
 </template>
 
 <script setup lang="ts">
+  import { SysRouterMenu } from 'types/SysRouterMenu'
+  import { useRouter } from 'vue-router'
   import IconifyCom from '@/components/IconifyCom.vue'
 
+  const router = useRouter()
+
   defineProps<{
-    menu: SysConfig.MenuRecord
+    menu: SysRouterMenu.MenuRecord
   }>()
+
+  // 点击对应链接跳转
+  const clickLinkMenuItem = (RouterName: any) => {
+    router.push({ name: RouterName.index })
+  }
 </script>

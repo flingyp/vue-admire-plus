@@ -2,7 +2,7 @@
  * 转换 VPlusRouteRecordRaw: RouteRecordRaw 相关工具函数
  */
 
-import { SysRouter } from 'types/SysRouter'
+import { SysRouterMenu } from 'types/SysRouterMenu'
 import { RouteRecordRaw } from 'vue-router'
 import lodash from 'lodash'
 
@@ -13,16 +13,16 @@ import { GlobFileModule } from './GlobModules'
  * @param VPlusRoutes： VPlusRoutes[]
  * @returns
  */
-const transformVPlusRouteToRouteRecordRaw = (VPlusRoutes: SysRouter.VPlusRoute[]): RouteRecordRaw[] => {
+const transformVPlusRouteToRouteRecordRaw = (VPlusRoutes: SysRouterMenu.VPlusRoute[]): RouteRecordRaw[] => {
   const NeedHandleVPlusRoutes = lodash.cloneDeep(VPlusRoutes)
 
-  const SysRouteRecordRawArr: RouteRecordRaw[] = []
+  const SysRouterMenuecordRawArr: RouteRecordRaw[] = []
 
   NeedHandleVPlusRoutes.forEach(VPlusRoute => {
     // eslint-disable-next-line no-use-before-define
-    SysRouteRecordRawArr.push(transform(VPlusRoute))
+    SysRouterMenuecordRawArr.push(transform(VPlusRoute))
   })
-  return SysRouteRecordRawArr
+  return SysRouterMenuecordRawArr
 }
 
 /**
@@ -30,7 +30,7 @@ const transformVPlusRouteToRouteRecordRaw = (VPlusRoutes: SysRouter.VPlusRoute[]
  * @param VPlusRoute：VPlusRoutes
  * @returns
  */
-const transform = (VPlusRoute: SysRouter.VPlusRoute): RouteRecordRaw => {
+const transform = (VPlusRoute: SysRouterMenu.VPlusRoute): RouteRecordRaw => {
   const CurrentRouteRecordRaw: RouteRecordRaw = {
     path: VPlusRoute.path,
     name: VPlusRoute.name,

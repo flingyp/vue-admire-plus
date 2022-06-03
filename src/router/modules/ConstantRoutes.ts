@@ -1,6 +1,6 @@
-import { SysRouter } from 'types/SysRouter'
+import { SysRouterMenu } from 'types/SysRouterMenu'
 
-const ConstantRoutes: SysRouter.VPlusRoute[] = [
+const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
   {
     path: '/login',
     name: 'LoginIndex',
@@ -23,7 +23,8 @@ const ConstantRoutes: SysRouter.VPlusRoute[] = [
         name: 'TestIndex',
         component: '@/views/test/TestIndex.vue',
         meta: {
-          label: '测试页面'
+          label: '测试页面',
+          icon: 'file-icons:test-typescript'
         }
       }
     ]

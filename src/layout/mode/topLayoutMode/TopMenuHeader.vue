@@ -6,7 +6,7 @@
     ></GlobalTitleLogo>
 
     <el-container class="mx-[5rem]">
-      <GlobalMenu mode="horizontal" defaultKey="1" :data="MenuData"></GlobalMenu>
+      <GlobalMenu mode="horizontal" defaultKey="1"></GlobalMenu>
     </el-container>
 
     <div>相关设置区域</div>
@@ -20,34 +20,4 @@
   import { UseSysStore } from '@/store/modules/SysStore'
 
   const SysStore = UseSysStore()
-
-  const MenuData: SysConfig.MenuRecord[] = [
-    {
-      label: '系统管理',
-      icon: 'ep:setting',
-      key: 'sys',
-      children: [
-        {
-          label: '用户管理',
-          icon: 'ep:setting',
-          key: 'sys-user'
-        },
-        {
-          label: '角色管理',
-          icon: 'ep:setting',
-          key: 'sys-role'
-        },
-        {
-          label: '权限管理',
-          icon: 'ep:setting',
-          key: 'sys-permission'
-        }
-      ]
-    },
-    {
-      label: '关于',
-      icon: 'ep:setting',
-      key: 'about'
-    }
-  ]
 </script>

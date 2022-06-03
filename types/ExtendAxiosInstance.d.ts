@@ -1,4 +1,4 @@
-import { AxiosResponse, AxiosRequestConfig, Method } from 'axios'
+import { AxiosResponse, AxiosRequestConfig, Method, AxiosRequestHeaders } from 'axios'
 
 export interface YPlusRequestParams {
   url: string
@@ -7,6 +7,7 @@ export interface YPlusRequestParams {
   data?: unknown
   isLoading?: boolean
   loadingText?: string
+  headers?: AxiosRequestHeaders
 }
 
 declare module 'axios' {
