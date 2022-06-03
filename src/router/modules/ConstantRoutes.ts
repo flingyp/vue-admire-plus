@@ -33,7 +33,8 @@ const ConstantRoutes: SysRouter.VPlusRoute[] = [
     name: 'Request',
     component: '@/views/test/TestRequest.vue',
     meta: {
-      label: '测试请求'
+      label: '测试请求',
+      isShow: false
     }
   },
   {

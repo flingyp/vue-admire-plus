@@ -55,17 +55,22 @@
 <script setup lang="ts">
   import { ref, reactive } from 'vue'
   import type { FormInstance, FormRules } from 'element-plus'
+  import { useRouter } from 'vue-router'
   import { UseSysStore } from '@/store/modules/SysStore'
 
   import SvgFileCom from '@/components/SvgFileCom.vue'
 
+  import { userLoginApi } from '@/apis/SysUserApi'
+  import { setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
+
+  const router = useRouter()
   const SysStore = UseSysStore()
   // 表单实例
   const LoginFormRef = ref<FormInstance>()
   // 登录校验表单
   const LoginModel = reactive({
-    username: '',
-    password: ''
+    username: 'admin',
+    password: 'admin'
   })
   // 登录校验规则
   const LoginRules = reactive<FormRules>({
@@ -87,10 +92,13 @@
   // 处理登录逻辑
   const onHandleLogin = async (FormRef: FormInstance | undefined) => {
     if (!FormRef) return
-    await FormRef.validate((valid, fields) => {
+    await FormRef.validate(async (valid, fields) => {
       if (!valid) return
       // 校验成功 进行登录
-      console.log('进行登录')
+      const UserToken = await userLoginApi(LoginModel.username, LoginModel.password)
+      setLocalKey('token', UserToken)
+      // 登录后台系统
+      router.push({ name: 'TestIndex' })
     })
   }
 </script>

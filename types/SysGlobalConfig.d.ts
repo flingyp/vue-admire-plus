@@ -6,6 +6,8 @@ interface BaseConfig {
 }
 
 namespace SysGlobalConfig {
+  // 系统布局模式
   type SysLayoutMode = LayoutMode
+  // 系统基础配置（对应SysGlobalConfig.ts文件）
   type SysBaseConfig = BaseConfig
 }
