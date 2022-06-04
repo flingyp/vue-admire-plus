@@ -31,7 +31,16 @@ const create = (Routers: RouteRecordRaw[]): SysRouterMenu.MenuRecord[] => {
 
 const createSysMenuRecord = (Routers: RouteRecordRaw[]) => {
   const MenuRecords = create(Routers)
-  return MenuRecords
+
+  // 提取菜单：如果第一节点的父菜单下只有一个 children 那么只显示子菜单
+  const HandleMenuRecords = MenuRecords.map(menu => {
+    if (menu.children && menu.children.length === 1) {
+      return menu.children[0]
+    }
+    return menu
+  })
+
+  return HandleMenuRecords
 }
 
 export default createSysMenuRecord

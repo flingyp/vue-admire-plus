@@ -11,6 +11,25 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
     }
   },
   {
+    path: '/about',
+    name: 'About',
+    component: 'Layout',
+    meta: {
+      label: '关于'
+    },
+    children: [
+      {
+        path: '',
+        name: 'AboutIndex',
+        component: '@/views/system/about/AboutIndex.vue',
+        meta: {
+          label: '关于',
+          icon: 'flat-color-icons:about'
+        }
+      }
+    ]
+  },
+  {
     path: '/test',
     name: 'Test',
     component: 'Layout',
