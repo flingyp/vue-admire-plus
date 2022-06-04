@@ -18,7 +18,7 @@
 
   const SysStore = UseSysStore()
 
-  const changeLayout = (value: SysGlobalConfig.SysLayoutMode) => {
+  const changeLayout = (value: SysBasicConfig.SysLayoutMode) => {
     SysStore.setLayoutMode(value)
   }
 </script>

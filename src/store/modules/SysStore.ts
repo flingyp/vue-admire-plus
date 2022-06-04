@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia'
 
-import { SysBaseConfig } from '../../SysGlobalConfig'
+import { SysBaseConfig } from '../../SysBasicConfig'
 
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 import { IUserInfo, userInfoApi } from '@/apis/SysUserApi'
 
 interface ISysStoreState {
-  SysBaseConfig: SysGlobalConfig.SysBaseConfig
+  SysBaseConfig: SysBasicConfig.SysBaseConfig
   SysConfig: SysConfig.Config
   SysUserInfo: IUserInfo | {}
 }
@@ -17,7 +17,7 @@ export const UseSysStore = defineStore('SysStore', {
     const SysStoreState: ISysStoreState = {
       SysBaseConfig,
       SysConfig: {
-        layoutMode: (getLocalKey('layoutMode') as SysGlobalConfig.SysLayoutMode) || SysBaseConfig.layoutMode,
+        layoutMode: (getLocalKey('layoutMode') as SysBasicConfig.SysLayoutMode) || SysBaseConfig.layoutMode,
         leftMenuIsCollapsed: false
       },
       SysUserInfo: {}
@@ -37,7 +37,7 @@ export const UseSysStore = defineStore('SysStore', {
      * 设置系统布局组件
      * @param value
      */
-    setLayoutMode(value: SysGlobalConfig.SysLayoutMode) {
+    setLayoutMode(value: SysBasicConfig.SysLayoutMode) {
       setLocalKey('layoutMode', value)
       this.SysConfig.layoutMode = value
     },

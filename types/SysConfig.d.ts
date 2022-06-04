@@ -1,7 +1,7 @@
 namespace SysConfig {
   // 系统配置
   interface Config {
-    layoutMode: SysGlobalConfig.SysLayoutMode // 布局模式
+    layoutMode: SysBasicConfig.SysLayoutMode // 布局模式
     leftMenuIsCollapsed: boolean // 左侧菜单布局模式是否收缩
   }
 
