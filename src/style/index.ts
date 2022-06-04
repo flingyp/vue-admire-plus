@@ -7,6 +7,9 @@ import 'element-plus/dist/index.css'
 // WindiCSS 样式文件
 import 'virtual:windi.css'
 
+// NProgress 样式文件
+import 'nprogress/nprogress.css'
+
 // 相关重写样式文件
 import './OverWrite.css'
 

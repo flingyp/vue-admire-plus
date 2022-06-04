@@ -1,4 +1,15 @@
 {
-  "cSpell.words": ["attributify", "dirents", "Iconify", "Perfix", "Pinia", "stylelint", "Vite", "Windi", "windicss"],
+  "cSpell.words": [
+    "attributify",
+    "dirents",
+    "Iconify",
+    "nprogress",
+    "Perfix",
+    "Pinia",
+    "stylelint",
+    "Vite",
+    "Windi",
+    "windicss"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

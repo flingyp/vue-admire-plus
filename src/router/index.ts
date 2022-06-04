@@ -1,9 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import NProgress from 'nprogress'
+
 import { App } from 'vue'
 
 import ConstantRoutes from './modules/ConstantRoutes'
 import transformVPlusToVRouterRecordRaw from './utils/TransformVPlusRoute'
-import RouterBeforeEachHandle from './RouterBeforeEachHandle'
+import routeMenuHandleProcess from './RouterBeforeEachHandle'
+
+NProgress.configure({ easing: 'ease', speed: 500 })
 
 /**
  * 路由实例
@@ -17,7 +21,12 @@ const routerInstance = createRouter({
  * 全局路由守卫
  */
 routerInstance.beforeEach(async (to, from, next) => {
-  await RouterBeforeEachHandle(to, from, next, routerInstance)
+  NProgress.start() // 进度条开始
+  await routeMenuHandleProcess(to, from, next, routerInstance)
+})
+
+routerInstance.afterEach(async () => {
+  NProgress.done() // 进度条结束
 })
 
 /**

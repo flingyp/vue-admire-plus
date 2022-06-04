@@ -28,7 +28,7 @@ import AsyncRouters from './modules/AsyncRoutes'
  *  4. 生成菜单
  *  5. 初始化相关状态管理
  */
-const RouteMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, RouterInstance: Router) => {
+const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, RouterInstance: Router) => {
   // 1. 获取用户信息
   await SysStore.setSysUserInfo()
   // 获取用户权限
@@ -94,14 +94,14 @@ export default async (
     if (from.name === 'LoginIndex' && to.name !== 'LoginIndex') {
       // 1.1 第一次从登录页跳转的情况
       if (!SysRouteMenuStore.IsAddAsyncRouter) {
-        await RouteMenuHandleProcess(SysStore, SysRouteMenuStore, RouterInstance)
+        await routeMenuHandleProcess(SysStore, SysRouteMenuStore, RouterInstance)
         SysRouteMenuStore.IsAddAsyncRouter = true
         next({ path: to.fullPath, replace: true })
       }
     } else if (from.name === undefined && to.name !== 'LoginIndex') {
       // 1.2 刷新页面的情况
       if (!SysRouteMenuStore.IsAddAsyncRouter) {
-        await RouteMenuHandleProcess(SysStore, SysRouteMenuStore, RouterInstance)
+        await routeMenuHandleProcess(SysStore, SysRouteMenuStore, RouterInstance)
         SysRouteMenuStore.IsAddAsyncRouter = true
         next({ path: to.fullPath, replace: true })
       }
