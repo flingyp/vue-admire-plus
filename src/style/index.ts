@@ -16,6 +16,9 @@ import './OverWrite.css'
 // 组件过渡效果样式文件
 import './TransitionStyle.css'
 
+// 重写ElementPlus相关样式文件
+import './OverWriteElementPlus.css'
+
 /**
  * 初始化样式文件
  */
