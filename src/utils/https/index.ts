@@ -18,7 +18,7 @@ import AxiosRequest from './CreateRequestInstance'
  */
 const DefaultRequestInstance = () => {
   const Request = new AxiosRequest({
-    baseURL: 'http://192.168.43.80:3000/',
+    baseURL: 'http://localhost:3000/',
     timeout: 10000
   })
 

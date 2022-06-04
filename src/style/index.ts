@@ -10,6 +10,9 @@ import 'virtual:windi.css'
 // 相关重写样式文件
 import './OverWrite.css'
 
+// 组件过渡效果样式文件
+import './TransitionStyle.css'
+
 /**
  * 初始化样式文件
  */

@@ -80,4 +80,9 @@
   })
 </script>
 
-<style scoped></style>
+<style scoped>
+  .el-main {
+    padding: 0 !important;
+    overflow-x: hidden;
+  }
+</style>
