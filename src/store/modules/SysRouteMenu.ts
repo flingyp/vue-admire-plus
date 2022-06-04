@@ -12,6 +12,7 @@ interface ISysRouteMenuStoreState {
   AllConstantRouterRecord: RouteRecordRaw[] // 所有VueRouter常量路由
   AllAsyncRouterRecord: RouteRecordRaw[] // 所有VueRouter异步路由
   AllMenuRecord: SysRouterMenu.MenuRecord[] // 所有菜单
+  AllRouteCollect: RouteRecordRaw[] // 所有路由集合
 }
 
 export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
@@ -25,7 +26,8 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
       AllRouterRecord: [],
       AllConstantRouterRecord: [],
       AllAsyncRouterRecord: [],
-      AllMenuRecord: []
+      AllMenuRecord: [],
+      AllRouteCollect: []
     }
 
     return SysRouteMenuStore

@@ -54,6 +54,7 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
   SysRouteMenuStore.AllConstantRouterRecord = TransformToConstantRouters
   SysRouteMenuStore.AllAsyncRouterRecord = TransformToAsyncRouters
   SysRouteMenuStore.AllMenuRecord = CreateSuccessSysMenuRecord
+  SysRouteMenuStore.AllRouteCollect = RouterInstance.getRoutes()
 }
 
 /**

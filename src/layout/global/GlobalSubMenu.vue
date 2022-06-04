@@ -27,8 +27,12 @@
 <script setup lang="ts">
   import { SysRouterMenu } from 'types/SysRouterMenu'
   import { useRouter } from 'vue-router'
+
+  import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
+
   import IconifyCom from '@/components/IconifyCom.vue'
 
+  const SysRouteMenuStore = UseSysRouteMenuStore()
   const router = useRouter()
 
   defineProps<{
@@ -37,6 +41,14 @@
 
   // 点击对应链接跳转
   const clickLinkMenuItem = (RouterName: any) => {
-    router.push({ name: RouterName.index })
+    const CurrentRoute = SysRouteMenuStore.AllRouteCollect.find(route => {
+      return route.name === RouterName.index
+    })
+    if (CurrentRoute?.meta?.link === 'EXTERNAL_LINK') {
+      // 外链跳转
+      window.open(CurrentRoute.meta.url)
+    } else {
+      router.push({ name: RouterName.index })
+    }
   }
 </script>

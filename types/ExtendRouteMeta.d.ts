@@ -10,5 +10,9 @@ declare module 'vue-router' {
     isShow?: boolean
     // 路由权限
     permissions?: Array<string>
+    // 链接（系统链接、内链、外链）
+    link?: 'SYS_LINK' | 'INTERNAL_LINK' | 'EXTERNAL_LINK'
+    // 内链、外链的链接地址
+    url?: string
   }
 }

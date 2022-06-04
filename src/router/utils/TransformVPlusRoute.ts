@@ -16,13 +16,13 @@ import { GlobFileModule } from './GlobModules'
 const transformVPlusRouteToRouteRecordRaw = (VPlusRoutes: SysRouterMenu.VPlusRoute[]): RouteRecordRaw[] => {
   const NeedHandleVPlusRoutes = lodash.cloneDeep(VPlusRoutes)
 
-  const SysRouterMenuecordRawArr: RouteRecordRaw[] = []
+  const SysRouterMenuRecordRawArr: RouteRecordRaw[] = []
 
   NeedHandleVPlusRoutes.forEach(VPlusRoute => {
     // eslint-disable-next-line no-use-before-define
-    SysRouterMenuecordRawArr.push(transform(VPlusRoute))
+    SysRouterMenuRecordRawArr.push(transform(VPlusRoute))
   })
-  return SysRouterMenuecordRawArr
+  return SysRouterMenuRecordRawArr
 }
 
 /**
@@ -30,12 +30,12 @@ const transformVPlusRouteToRouteRecordRaw = (VPlusRoutes: SysRouterMenu.VPlusRou
  * @param VPlusRoute：VPlusRoutes
  * @returns
  */
-const transform = (VPlusRoute: SysRouterMenu.VPlusRoute): RouteRecordRaw => {
+const transform = (VPlusRoute: SysRouterMenu.VPlusRoute) => {
   const CurrentRouteRecordRaw: RouteRecordRaw = {
     path: VPlusRoute.path,
     name: VPlusRoute.name,
     meta: VPlusRoute.meta,
-    component: GlobFileModule(VPlusRoute.component)
+    component: GlobFileModule(VPlusRoute.component as string)
   }
   if (VPlusRoute.children) {
     CurrentRouteRecordRaw.children = transformVPlusRouteToRouteRecordRaw(VPlusRoute.children)
