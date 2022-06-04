@@ -1,4 +1,4 @@
-import { SysRouterMenu } from 'types/SysRouterMenu'
+import type { SysRouterMenu } from 'types/SysRouterMenu'
 
 const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
   {

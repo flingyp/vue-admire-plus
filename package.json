@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode dev",
     "build": "vue-tsc --noEmit && vite build",
+    "build:mock": "vue-tsc --noEmit && vite build --mode prod_mock",
     "preview": "vite preview",
+    "preview:mock": "vite preview --mode prod_mock",
     "lint:eslint": "eslint --cache --max-warnings 0 \"{src,mock}/**/*.{vue,js,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,sass}\"",

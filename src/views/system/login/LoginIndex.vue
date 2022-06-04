@@ -4,13 +4,7 @@
     <el-container
       class="transition-all duration-200 ease-linear flex items-center absolute mt-[1rem] ml-[1.5rem] <2xl:(left-[50%] mt-[1.5rem] transform translate-x-[-50%])"
     >
-      <img
-        :src="`${SysStore.SysBaseConfig.logo}`"
-        :alt="SysStore.SysBaseConfig.title"
-        srcset=""
-        w:w="w-[2rem]"
-        w:m="r-2"
-      />
+      <img :src="getImageUrl('SysLogo.png')" :alt="SysStore.SysBaseConfig.title" srcset="" w:w="w-[2rem]" w:m="r-2" />
       <span w:text="[1rem]" w:font="medium" class="<2xl:(text-[1.5rem])">{{ SysStore.SysBaseConfig.title }}</span>
     </el-container>
 
@@ -62,6 +56,8 @@
 
   import { userLoginApi } from '@/apis/SysUserApi'
   import { setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
+
+  import { getImageUrl } from '@/utils/common/AsyncImportImg'
 
   const router = useRouter()
   const SysStore = UseSysStore()

@@ -10,7 +10,7 @@ import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
  */
 export const userLoginApi = async (username: string, password: string) => {
   const response = await $http.YPlusRequest<SysConfig.HttpResponse<string>>({
-    url: '/mock/user/login',
+    url: '/user/login',
     method: 'post',
     isLoading: true,
     loadingText: '登录中...',
@@ -39,7 +39,7 @@ export interface IUserInfo {
  */
 export const userInfoApi = async () => {
   const response = await $http.YPlusRequest<SysConfig.HttpResponse<IUserInfo>>({
-    url: '/mock/user/info',
+    url: '/user/info',
     method: 'post',
     headers: {
       token: getLocalKey('token') as string

@@ -1,4 +1,4 @@
-import type { UserConfigExport } from 'vite'
+import type { UserConfigExport, ConfigEnv } from 'vite'
 
 import vue from '@vitejs/plugin-vue'
 
@@ -25,7 +25,19 @@ import SvgBuilder from './src/plugins/SvgBuilder'
 
 const pathSrc = resolve(__dirname, 'src')
 
-export default (config: UserConfigExport): UserConfigExport => {
+export default ({ mode }: ConfigEnv): UserConfigExport => {
+  console.log(mode)
+
+  const judgeLocalIsEnabledMock = () => {
+    if (mode === 'dev') return true
+    return false
+  }
+
+  const judgeProdIsEnabledMock = () => {
+    if (mode === 'prod_mock') return true
+    return false
+  }
+
   return {
     base: './',
     // 配置别名
@@ -40,7 +52,17 @@ export default (config: UserConfigExport): UserConfigExport => {
     },
     plugins: [
       vue(),
-      viteMockServe(),
+      viteMockServe({
+        mockPath: 'mock',
+        localEnabled: judgeLocalIsEnabledMock(),
+        prodEnabled: judgeProdIsEnabledMock(),
+        injectCode: `
+          import { setupProdMockServer } from './MockProdServer';
+          setupProdMockServer();
+        `,
+        watchFiles: true,
+        logger: true
+      }),
       WindiCSS(),
       AutoImport({
         // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { SysRouterMenu } from 'types/SysRouterMenu'
+import type { SysRouterMenu } from 'types/SysRouterMenu'
 import { RouteRecordRaw } from 'vue-router'
 
 interface ISysRouteMenuStoreState {

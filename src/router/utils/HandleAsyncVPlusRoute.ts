@@ -1,4 +1,4 @@
-import { SysRouterMenu } from 'types/SysRouterMenu'
+import type { SysRouterMenu } from 'types/SysRouterMenu'
 import { Router, RouteRecordRaw } from 'vue-router'
 
 /**

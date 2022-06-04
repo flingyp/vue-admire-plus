@@ -29,4 +29,4 @@ const initApplication = async () => {
   app.mount('#app')
 }
 
-await initApplication()
+initApplication()

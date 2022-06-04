@@ -25,9 +25,9 @@
 </template>
 
 <script setup lang="ts">
-  import { SysRouterMenu } from 'types/SysRouterMenu'
   import { useRouter } from 'vue-router'
 
+  import type { SysRouterMenu } from 'types/SysRouterMenu'
   import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 
   import IconifyCom from '@/components/IconifyCom.vue'

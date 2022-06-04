@@ -2,7 +2,7 @@
  * 生成菜单：SysRouterMenu.MenuRecord
  */
 
-import { SysRouterMenu } from 'types/SysRouterMenu'
+import type { SysRouterMenu } from 'types/SysRouterMenu'
 import type { RouteRecordRaw } from 'vue-router'
 
 const create = (Routers: RouteRecordRaw[]): SysRouterMenu.MenuRecord[] => {

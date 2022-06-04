@@ -8,7 +8,7 @@ export default [
     url: '/mock/user/login',
     method: 'post',
     timeout: 3000,
-    response: ({ body }) => {
+    response: ({ body }: any) => {
       if (body.username === 'admin' && body.password === 'admin') {
         return {
           code: 200,
@@ -26,7 +26,7 @@ export default [
   {
     url: '/mock/user/info',
     method: 'post',
-    response: ({ headers }) => {
+    response: ({ headers }: any) => {
       if (headers.token === 'VPlus-Admin') {
         return {
           code: 200,

@@ -2,7 +2,7 @@
  * 转换 VPlusRouteRecordRaw: RouteRecordRaw 相关工具函数
  */
 
-import { SysRouterMenu } from 'types/SysRouterMenu'
+import type { SysRouterMenu } from 'types/SysRouterMenu'
 import { RouteRecordRaw } from 'vue-router'
 import lodash from 'lodash'
 
