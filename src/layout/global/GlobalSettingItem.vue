@@ -14,9 +14,3 @@
     label: '默认标签'
   })
 </script>
-
-<style scoped>
-  .setting-item:not(:last-child) {
-    margin-bottom: 3rem;
-  }
-</style>

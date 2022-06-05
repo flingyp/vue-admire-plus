@@ -1,6 +1,6 @@
 <template>
   <el-drawer
-    size="25%"
+    size="20%"
     direction="rtl"
     v-model="SysStore.getIsShowSysDrawerValue"
     :before-close="handleClose"
@@ -25,7 +25,26 @@
       />
     </GlobalSettingItem>
 
-    <GlobalSettingItem label="布局模式"> </GlobalSettingItem>
+    <GlobalSettingItem label="布局模式">
+      <div class="flex items-center justify-around">
+        <el-tooltip
+          effect="dark"
+          placement="bottom"
+          v-for="item in LayoutModeData"
+          :key="item.code"
+          :content="item.label"
+        >
+          <div
+            class="checkbox-shadow relative w-60px h-60px bg-white dark:bg-[var(--el-bg-color-page)] rounded-4px overflow-hidden cursor-pointer"
+            :class="item.code == SysStore.SysConfig.layoutMode ? 'active-layout' : ''"
+            @click="changeLayoutMode(item.code)"
+          >
+            <div class="absolute bg-[#273352]" :class="item.menuClass"></div>
+            <div class="absolute bg-[#f0f2f5]" :class="item.mainClass"></div>
+          </div>
+        </el-tooltip>
+      </div>
+    </GlobalSettingItem>
   </el-drawer>
 </template>
 
@@ -56,9 +75,37 @@
   }
 
   // 第二部分：布局模式相关
+  interface LayoutModeProps {
+    label: string
+    code: SysBasicConfig.SysLayoutMode
+    menuClass: string
+    mainClass: string
+  }
+  const LayoutModeData: LayoutModeProps[] = [
+    { label: '左侧菜单', code: 'LEFT_MENU_MODE', menuClass: 'w-1/3 h-full', mainClass: 'w-2/3 h-3/4 right-0 bottom-0' },
+    { label: '顶部菜单', code: 'TOP_MENU_MODE', menuClass: 'w-full h-1/3', mainClass: 'w-full h-2/3 bottom-0' },
+    {
+      label: '顶部混合菜单',
+      code: 'TOP_MIX_MENU_MODE',
+      menuClass: 'w-full h-1/3',
+      mainClass: 'w-2/3 h-2/3 right-0 bottom-0'
+    }
+  ]
+  const changeLayoutMode = (code: SysBasicConfig.SysLayoutMode) => {
+    SysStore.SysConfig.layoutMode = code
+  }
 
   // 最后部分：关闭系统抽屉
   const handleClose = () => {
     SysStore.SysConfig.isShowSysDrawer = false
   }
 </script>
+
+<style scoped>
+  .checkbox-shadow {
+    box-shadow: 0 1px 2.5px rgba(0, 0, 0, 0.18);
+  }
+  .active-layout {
+    border: 2px solid var(--el-color-primary-light-3);
+  }
+</style>
