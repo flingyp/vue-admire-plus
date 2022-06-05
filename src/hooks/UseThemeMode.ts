@@ -1,4 +1,5 @@
 import { useDark, useToggle } from '@vueuse/core'
+import { UseSysStore } from '@/store/modules/SysStore'
 
 /**
  * 切换系统主题模式钩子函数
@@ -17,7 +18,10 @@ const useThemeMode = () => {
 
   // 切换系统主题模式
   const toggleThemeMode = () => {
-    toggleDark(!judgeIsDarkMode())
+    const SysStore = UseSysStore()
+    const ModeBoolean = !judgeIsDarkMode()
+    toggleDark(ModeBoolean)
+    SysStore.SysConfig.themeMode = ModeBoolean ? 'dark' : 'light'
   }
   return { judgeIsDarkMode, toggleThemeMode }
 }

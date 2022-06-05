@@ -1,4 +1,5 @@
 <template>
+  <!-- 系统布局容器 -->
   <BasicLayoutSlot>
     <template #header>
       <keep-alive>
@@ -17,10 +18,14 @@
       </KeepAlive>
     </template>
   </BasicLayoutSlot>
+  <!-- 系统相关配置组件 -->
+  <GlobalSysSetting></GlobalSysSetting>
 </template>
 
 <script setup lang="ts">
   import { computed } from 'vue'
+
+  import { UseSysStore } from '@/store/modules/SysStore'
 
   // 系统基础布局组件
   import BasicLayoutSlot from './BasicLayoutSlot.vue'
@@ -37,7 +42,8 @@
   // 系统的主内容区域
   import GlobalMainContent from '../global/GlobalMainContent.vue'
 
-  import { UseSysStore } from '@/store/modules/SysStore'
+  // 系统设置抽屉
+  import GlobalSysSetting from '../global/GlobalSysSetting.vue'
 
   const SysStore = UseSysStore()
 

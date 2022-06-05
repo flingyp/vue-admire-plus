@@ -81,6 +81,9 @@
 </script>
 
 <style scoped>
+  .el-container {
+    height: 100%;
+  }
   .el-main {
     padding: 0 !important;
     overflow-x: hidden;

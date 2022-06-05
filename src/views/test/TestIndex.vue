@@ -9,8 +9,8 @@
     <el-icon><ArrowLeft /></el-icon>
     <SvgFileCom name="learning-sketching" color="#6c63ff"></SvgFileCom>
     <SvgFileCom name="login-sys-symbol"></SvgFileCom>
-    <el-button type="primary" @click="changeThemeMode">切换系统主题</el-button>
     <div class="text-red-400 dark:text-green-400">测试Windi CSS 暗黑模式</div>
+    <el-button type="primary" @click="openDrawer">系统配置抽屉</el-button>
   </div>
 </template>
 
@@ -19,12 +19,11 @@
   import IconifyCom from '@/components/IconifyCom.vue'
   import SvgFileCom from '@/components/SvgFileCom.vue'
 
-  import { useThemeMode } from '@/hooks/UseThemeMode'
+  import { UseSysStore } from '@/store/modules/SysStore'
 
-  const { toggleThemeMode } = useThemeMode()
+  const SysStore = UseSysStore()
 
-  const changeThemeMode = () => {
-    // 切换主题模式
-    toggleThemeMode()
+  const openDrawer = () => {
+    SysStore.SysConfig.isShowSysDrawer = !SysStore.getIsShowSysDrawerValue
   }
 </script>

@@ -14,6 +14,10 @@ svg {
   display: inline-block;
 }
 
+#app {
+  height: 100%;
+}
+
 /* 滚动条宽度 */
 ::-webkit-scrollbar {
   width: 6px;

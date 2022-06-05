@@ -1,9 +1,6 @@
 <template>
   <el-container class="flex items-center justify-start h-full">
-    <GlobalTitleLogo
-      :LogoLocalSrc="SysStore.SysBaseConfig.logo"
-      :SysTitle="SysStore.SysBaseConfig.title"
-    ></GlobalTitleLogo>
+    <GlobalTitleLogo :SysTitle="SysStore.SysBaseConfig.title"></GlobalTitleLogo>
 
     <LeftMenuCollapse></LeftMenuCollapse>
   </el-container>

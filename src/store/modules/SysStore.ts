@@ -6,6 +6,10 @@ import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 import { IUserInfo, userInfoApi } from '@/apis/SysUserApi'
 
+import { useThemeMode } from '@/hooks/UseThemeMode'
+
+const { judgeIsDarkMode } = useThemeMode()
+
 interface ISysStoreState {
   SysBaseConfig: SysBasicConfig.SysBaseConfig
   SysConfig: SysConfig.Config
@@ -18,12 +22,17 @@ export const UseSysStore = defineStore('SysStore', {
       SysBaseConfig,
       SysConfig: {
         layoutMode: (getLocalKey('layoutMode') as SysBasicConfig.SysLayoutMode) || SysBaseConfig.layoutMode,
-        leftMenuIsCollapsed: false
+        leftMenuIsCollapsed: false,
+        isShowSysDrawer: false,
+        themeMode: judgeIsDarkMode() ? 'dark' : 'light'
       },
       SysUserInfo: {}
     }
 
     return SysStoreState
+  },
+  getters: {
+    getIsShowSysDrawerValue: (state: ISysStoreState) => state.SysConfig.isShowSysDrawer
   },
   actions: {
     /**

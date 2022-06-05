@@ -14,7 +14,7 @@ const initApplication = async () => {
   const app = createApp(App)
 
   // ElementPlus
-  app.use(ElementPlus, { size: 'small', zIndex: 3000 })
+  app.use(ElementPlus)
 
   // 初始化路由
   initRouter(app)
