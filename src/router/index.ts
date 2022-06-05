@@ -33,7 +33,7 @@ routerInstance.afterEach(async () => {
  * 初始化路由
  * @param app
  */
-const initRouter = (app: App) => {
+const initRouter = (app: App<Element>) => {
   app.use(routerInstance)
 }
 
