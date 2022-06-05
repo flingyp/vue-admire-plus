@@ -4,6 +4,9 @@ import './ResetStyle.css'
 // ElementPlus 样式文件
 import 'element-plus/dist/index.css'
 
+// ElementPlus 暗黑模式 相关CSS变量
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
 // WindiCSS 样式文件
 import 'virtual:windi.css'
 

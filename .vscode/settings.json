@@ -8,6 +8,7 @@
     "Pinia",
     "stylelint",
     "Vite",
+    "vueuse",
     "Windi",
     "windicss"
   ],

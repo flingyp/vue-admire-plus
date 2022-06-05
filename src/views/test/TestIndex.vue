@@ -9,6 +9,8 @@
     <el-icon><ArrowLeft /></el-icon>
     <SvgFileCom name="learning-sketching" color="#6c63ff"></SvgFileCom>
     <SvgFileCom name="login-sys-symbol"></SvgFileCom>
+    <el-button type="primary" @click="changeThemeMode">切换系统主题</el-button>
+    <div class="text-red-400 dark:text-green-400">测试Windi CSS 暗黑模式</div>
   </div>
 </template>
 
@@ -16,4 +18,13 @@
   import { AddLocation, Edit, Share, ArrowLeft } from '@element-plus/icons-vue'
   import IconifyCom from '@/components/IconifyCom.vue'
   import SvgFileCom from '@/components/SvgFileCom.vue'
+
+  import { useThemeMode } from '@/hooks/UseThemeMode'
+
+  const { toggleThemeMode } = useThemeMode()
+
+  const changeThemeMode = () => {
+    // 切换主题模式
+    toggleThemeMode()
+  }
 </script>
