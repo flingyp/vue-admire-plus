@@ -1,13 +1,10 @@
-* {
-  transition: width 0.3s;
-}
-
 html,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 svg {

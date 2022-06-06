@@ -1,8 +1,8 @@
 <template>
   <el-drawer
-    size="20%"
+    size="400px"
     direction="rtl"
-    v-model="SysStore.getIsShowSysDrawerValue"
+    v-model="SysStore.SysConfig.isShowSysDrawer"
     :before-close="handleClose"
     :show-close="false"
   >
@@ -92,7 +92,7 @@
     }
   ]
   const changeLayoutMode = (code: SysBasicConfig.SysLayoutMode) => {
-    SysStore.SysConfig.layoutMode = code
+    SysStore.setLayoutMode(code)
   }
 
   // 最后部分：关闭系统抽屉

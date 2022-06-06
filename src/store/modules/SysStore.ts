@@ -31,9 +31,6 @@ export const UseSysStore = defineStore('SysStore', {
 
     return SysStoreState
   },
-  getters: {
-    getIsShowSysDrawerValue: (state: ISysStoreState) => state.SysConfig.isShowSysDrawer
-  },
   actions: {
     /**
      * 设置左侧菜单是否收缩
@@ -56,6 +53,13 @@ export const UseSysStore = defineStore('SysStore', {
     async setSysUserInfo() {
       const UserInfo = await userInfoApi()
       this.SysUserInfo = UserInfo
+    },
+    /**
+     * 设置主题模式
+     * @param value
+     */
+    setThemeMode(value: SysConfig.ThemeMode) {
+      this.SysConfig.themeMode = value
     }
   }
 })

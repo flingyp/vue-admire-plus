@@ -86,6 +86,15 @@
   }
   .el-main {
     padding: 0 !important;
+    max-width: 100vw;
     overflow-x: hidden;
+    background-color: var(--el-bg-color-page);
+  }
+  .el-header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .el-aside {
+    transition: all 0.3s;
   }
 </style>
