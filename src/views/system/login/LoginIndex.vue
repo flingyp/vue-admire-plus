@@ -57,8 +57,9 @@
 
 <script setup lang="ts">
   import { ref, reactive } from 'vue'
-  import type { FormInstance, FormRules } from 'element-plus'
+
   import { useRouter } from 'vue-router'
+  import type { FormInstance, FormRules } from 'element-plus'
   import { UseSysStore } from '@/store/modules/SysStore'
 
   import SvgFileCom from '@/components/SvgFileCom.vue'
