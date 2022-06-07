@@ -1,18 +1,15 @@
 body {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .loading-box {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    justify-items: center;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .spinner-box {
