@@ -85,7 +85,7 @@
     height: 100%;
   }
   .el-main {
-    padding: 0 !important;
+    padding: 0;
     max-width: 100vw;
     overflow-x: hidden;
     background-color: var(--el-bg-color-page);

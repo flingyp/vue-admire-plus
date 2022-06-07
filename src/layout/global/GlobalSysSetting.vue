@@ -92,6 +92,9 @@
     }
   ]
   const changeLayoutMode = (code: SysBasicConfig.SysLayoutMode) => {
+    if (code === 'TOP_MENU_MODE') {
+      SysStore.SysConfig.leftMenuIsCollapsed = false
+    }
     SysStore.setLayoutMode(code)
   }
 

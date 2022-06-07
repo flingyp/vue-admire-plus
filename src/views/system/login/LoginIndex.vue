@@ -1,11 +1,13 @@
 <template>
-  <div class="login-page-box">
+  <div class="bg-gradient-to-tr from-[#b3e5fc] to-[#e1f5fe] dark:from-[#afc2cb] dark:to-[#82b3c9]">
     <!-- Logo 和 Title -->
     <el-container
       class="transition-all duration-200 ease-linear flex items-center absolute mt-[1rem] ml-[1.5rem] <2xl:(left-[50%] mt-[1.5rem] transform translate-x-[-50%])"
     >
       <img :src="getImageUrl('SysLogo.png')" :alt="SysStore.SysBaseConfig.title" srcset="" w:w="w-[2rem]" w:m="r-2" />
-      <span w:text="[1rem]" w:font="medium" class="<2xl:(text-[1.5rem])">{{ SysStore.SysBaseConfig.title }}</span>
+      <span w:text="[1rem]" w:font="medium" class="text-[var(--el-text-color-primary)] <2xl:(text-[1.5rem])">{{
+        SysStore.SysBaseConfig.title
+      }}</span>
     </el-container>
 
     <!-- SVG -->
@@ -26,7 +28,7 @@
       w:bg="[#FFF]"
       w:p="[3rem]"
       w:rounded="[1rem]"
-      class="!transition-all duration-500 ease-linear shadow-xl absolute right-[10%] top-[50%] transform translate-y-[-50%] overflow-hidden <md:(w-[400px]) <xl:(w-[450px]) <2xl:(w-[600px] left-[50%] translate-x-[-50%] translate-y-[-50%])"
+      class="dark:bg-[var(--el-bg-color-page)] !transition-all duration-500 ease-linear shadow-xl absolute right-[10%] top-[50%] transform translate-y-[-50%] overflow-hidden <md:(w-[400px]) <xl:(w-[450px]) <2xl:(w-[600px] left-[50%] translate-x-[-50%] translate-y-[-50%])"
     >
       <h1 class="text-[2rem] font-bold font-serif mb-[1.5rem]">登录</h1>
       <el-form ref="LoginFormRef" size="large" :model="LoginModel" :rules="LoginRules">
@@ -41,7 +43,14 @@
         </el-form-item>
       </el-form>
       <el-divider />
-      <div class="text-center">功能区</div>
+      <div class="flex justify-around items-center">
+        <IconifyCom
+          :name="SysStore.SysConfig.themeMode !== 'dark' ? 'emojione-v1:sun' : 'fxemoji:lastquartermoonface'"
+          :width="30"
+          class="cursor-pointer"
+          @click="changeThemeMode"
+        ></IconifyCom>
+      </div>
     </el-container>
   </div>
 </template>
@@ -53,14 +62,21 @@
   import { UseSysStore } from '@/store/modules/SysStore'
 
   import SvgFileCom from '@/components/SvgFileCom.vue'
+  import IconifyCom from '@/components/IconifyCom.vue'
 
   import { userLoginApi } from '@/apis/SysUserApi'
   import { setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
-
   import { getImageUrl } from '@/utils/common/AsyncImportImg'
+  import { useThemeMode } from '@/hooks/UseThemeMode'
 
   const router = useRouter()
   const SysStore = UseSysStore()
+  const { toggleThemeMode } = useThemeMode()
+
+  const changeThemeMode = () => {
+    toggleThemeMode()
+  }
+
   // 表单实例
   const LoginFormRef = ref<FormInstance>()
   // 登录校验表单
@@ -102,8 +118,5 @@
 <style scoped>
   * {
     transition: all 0s;
-  }
-  .login-page-box {
-    background-image: linear-gradient(300deg, #e4f6ff, #f9feff);
   }
 </style>

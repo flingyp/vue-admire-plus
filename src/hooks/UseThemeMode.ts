@@ -20,7 +20,7 @@ const useThemeMode = () => {
   const toggleThemeMode = () => {
     const SysStore = UseSysStore()
     const ModeBoolean = !judgeIsDarkMode()
-    SysStore.SysConfig.themeMode = ModeBoolean ? 'dark' : 'light'
+    SysStore.setThemeMode(ModeBoolean ? 'dark' : 'light')
     toggleDark(ModeBoolean)
   }
   return { judgeIsDarkMode, toggleThemeMode }

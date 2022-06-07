@@ -4,5 +4,5 @@
     "property-no-vendor-prefix": null,
     "rule-empty-line-before": null
   },
-  "ignoreFiles": "['node_modules', 'dist']"
+  "ignoreFiles": "['node_modules', 'dist', '/index.html']"
 }
