@@ -3,13 +3,13 @@
  */
 
 import type { SysRouterMenu } from 'types/SysRouterMenu'
-import { RouteRecordRaw } from 'vue-router'
+import { RouteRecordRaw, RouteRecordRedirectOption } from 'vue-router'
 import lodash from 'lodash'
 
 import { GlobFileModule } from './GlobModules'
 
 /**
- * 将 VPlusRoutes 转换为 RouteRecordRaw[]
+ * 工具函数：转换 VPlusRoute[] -> RouteRecordRaw[]
  * @param VPlusRoutes： VPlusRoutes[]
  * @returns
  */
@@ -26,16 +26,18 @@ const transformVPlusRouteToRouteRecordRaw = (VPlusRoutes: SysRouterMenu.VPlusRou
 }
 
 /**
- * 转换函数
+ * 转换函数：转换 VPlusRoute -> RouteRecordRaw
  * @param VPlusRoute：VPlusRoutes
  * @returns
  */
 const transform = (VPlusRoute: SysRouterMenu.VPlusRoute) => {
+  // @ts-ignore
   const CurrentRouteRecordRaw: RouteRecordRaw = {
     path: VPlusRoute.path,
     name: VPlusRoute.name,
     meta: VPlusRoute.meta,
-    component: GlobFileModule(VPlusRoute.component as string)
+    component: (VPlusRoute.component && GlobFileModule(VPlusRoute.component)) || undefined,
+    redirect: VPlusRoute.redirect && (VPlusRoute.redirect as RouteRecordRedirectOption)
   }
   if (VPlusRoute.children) {
     CurrentRouteRecordRaw.children = transformVPlusRouteToRouteRecordRaw(VPlusRoute.children)

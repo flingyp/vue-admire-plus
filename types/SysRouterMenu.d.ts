@@ -8,6 +8,7 @@ namespace SysRouterMenu {
     component?: string // 页面路径（使用别名，其他方式均不可）
     children?: VPlusRoute[]
     meta?: RouteMeta
+    redirect?: string // 重定向路径（设置该属性，不需要设置component）
   }
 
   // 菜单数据结构

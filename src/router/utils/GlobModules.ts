@@ -12,7 +12,7 @@ const GlobFileModule = (path: string) => {
   if (path === 'Layout') {
     return Layout
   }
-
+  // 特殊组件-Iframe
   if (path === 'Iframe') {
     return BasicIframe
   }

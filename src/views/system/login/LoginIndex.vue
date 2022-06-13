@@ -4,8 +4,8 @@
     <el-container
       class="transition-all duration-200 ease-linear flex items-center absolute mt-[1rem] ml-[1.5rem] <2xl:(left-[50%] mt-[1.5rem] transform translate-x-[-50%])"
     >
-      <img :src="getImageUrl('SysLogo.png')" :alt="SysStore.SysBaseConfig.title" srcset="" w:w="w-[2rem]" w:m="r-2" />
-      <span w:text="[1rem]" w:font="medium" class="text-[var(--el-text-color-primary)] <2xl:(text-[1.5rem])">{{
+      <img :src="getImageUrl('SysLogo.png')" :alt="SysStore.SysBaseConfig.title" srcset="" class="w-[2rem] mr-2" />
+      <span class="text-[1rem] font-medium text-[var(--el-text-color-primary)] <2xl:(text-[1.5rem])">{{
         SysStore.SysBaseConfig.title
       }}</span>
     </el-container>

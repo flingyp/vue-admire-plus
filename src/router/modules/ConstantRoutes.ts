@@ -2,6 +2,15 @@ import type { SysRouterMenu } from 'types/SysRouterMenu'
 
 const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
   {
+    path: '/',
+    name: 'Index',
+    redirect: '/about',
+    meta: {
+      label: '首页',
+      isShow: false
+    }
+  },
+  {
     path: '/login',
     name: 'LoginIndex',
     component: '@/views/system/login/LoginIndex.vue',

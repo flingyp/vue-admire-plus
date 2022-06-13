@@ -5,6 +5,11 @@
 import type { SysRouterMenu } from 'types/SysRouterMenu'
 import type { RouteRecordRaw } from 'vue-router'
 
+/**
+ * 工具函数：创建菜单 RouteRecordRaw[] -> SysRouterMenu.MenuRecord[]
+ * @param Routers
+ * @returns
+ */
 const create = (Routers: RouteRecordRaw[]): SysRouterMenu.MenuRecord[] => {
   const Menus: SysRouterMenu.MenuRecord[] = []
   Routers.forEach(route => {
@@ -29,6 +34,11 @@ const create = (Routers: RouteRecordRaw[]): SysRouterMenu.MenuRecord[] => {
   return Menus
 }
 
+/**
+ * 工具函数：创建菜单 RouteRecordRaw[] -> SysRouterMenu.MenuRecord[]
+ * @param Routers
+ * @returns
+ */
 const createSysMenuRecord = (Routers: RouteRecordRaw[]) => {
   const MenuRecords = create(Routers)
 

@@ -26,8 +26,6 @@ import SvgBuilder from './src/plugins/SvgBuilder'
 const pathSrc = resolve(__dirname, 'src')
 
 export default ({ mode }: ConfigEnv): UserConfigExport => {
-  console.log(mode)
-
   const judgeLocalIsEnabledMock = () => {
     if (mode === 'dev') return true
     return false

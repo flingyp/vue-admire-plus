@@ -2,7 +2,7 @@
  * h() 渲染Iconify组件函数
  */
 
-import { Component, h } from 'vue'
+import { h } from 'vue'
 
 import { Icon } from '@iconify/vue'
 
