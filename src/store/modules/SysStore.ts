@@ -10,6 +10,9 @@ import { useThemeMode } from '@/hooks/UseThemeMode'
 
 const { judgeIsDarkMode } = useThemeMode()
 
+// 系统内置的主题颜色数组
+const ThemeColorArray = ['#409eff', '#273352']
+
 interface ISysStoreState {
   SysBaseConfig: SysBasicConfig.SysBaseConfig
   SysConfig: SysConfig.Config
@@ -24,12 +27,18 @@ export const UseSysStore = defineStore('SysStore', {
         layoutMode: (getLocalKey('layoutMode') as SysBasicConfig.SysLayoutMode) || SysBaseConfig.layoutMode,
         leftMenuIsCollapsed: false,
         isShowSysDrawer: false,
-        themeMode: judgeIsDarkMode() ? 'dark' : 'light'
+        themeMode: judgeIsDarkMode() ? 'dark' : 'light',
+        themeColor: '#409eff',
+        themeColorArray: ThemeColorArray
       },
       SysUserInfo: {}
     }
 
     return SysStoreState
+  },
+  getters: {
+    themeColor: (state: ISysStoreState) => state.SysConfig.themeColor,
+    themeColorArray: (state: ISysStoreState) => state.SysConfig.themeColorArray
   },
   actions: {
     /**
@@ -60,6 +69,12 @@ export const UseSysStore = defineStore('SysStore', {
      */
     setThemeMode(value: SysConfig.ThemeMode) {
       this.SysConfig.themeMode = value
+    },
+    /**
+     * 设置主题颜色
+     */
+    setThemeColor(value: string) {
+      this.SysConfig.themeColor = value
     }
   }
 })

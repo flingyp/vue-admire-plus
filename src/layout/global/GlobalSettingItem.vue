@@ -1,5 +1,5 @@
 <template>
-  <div class="setting-item">
+  <div class="mb-[1.2rem]">
     <el-divider>{{ label }}</el-divider>
     <slot> 默认内容 </slot>
   </div>

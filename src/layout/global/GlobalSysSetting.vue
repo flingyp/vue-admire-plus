@@ -45,11 +45,23 @@
         </el-tooltip>
       </div>
     </GlobalSettingItem>
+
+    <GlobalSettingItem label="主题色模式">
+      <div class="color-item-box">
+        <span
+          v-for="(item, index) in SysStore.themeColorArray"
+          :key="index"
+          :style="{ backgroundColor: item }"
+          :class="[SysStore.themeColor === item as string ? 'active-item-box' : '' ]"
+          @click="changePrimaryColor(item)"
+        ></span>
+      </div>
+    </GlobalSettingItem>
   </el-drawer>
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
+  import { computed, ref, toRef, toRefs } from 'vue'
   import { UseSysStore } from '@/store/modules/SysStore'
   import { render } from '@/utils/common/IconifyRenderComponent'
 
@@ -98,6 +110,11 @@
     SysStore.setLayoutMode(code)
   }
 
+  // 第三部分：主题色模式相关
+  const changePrimaryColor = (color: string) => {
+    SysStore.setThemeColor(color)
+  }
+
   // 最后部分：关闭系统抽屉
   const handleClose = () => {
     SysStore.SysConfig.isShowSysDrawer = false
@@ -110,5 +127,35 @@
   }
   .active-layout {
     border: 2px solid var(--el-color-primary-light-3);
+  }
+
+  .color-item-box {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    align-content: center;
+    grid-row-gap: 8px;
+    color: #fff;
+  }
+
+  .color-item-box > span {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    background-color: red;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .color-item-box > span.active-item-box::after {
+    content: '\2714';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
   }
 </style>

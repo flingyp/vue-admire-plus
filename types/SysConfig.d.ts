@@ -7,6 +7,8 @@ namespace SysConfig {
     leftMenuIsCollapsed: boolean // 左侧菜单布局模式是否收缩
     isShowSysDrawer: boolean // 系统设置抽屉是否显示
     themeMode: ThemeMode // 主题模式
+    themeColor: string // 主题颜色
+    themeColorArray: string[] // 系统内置的主题颜色数组
   }
 
   // 统一响应数据结构
