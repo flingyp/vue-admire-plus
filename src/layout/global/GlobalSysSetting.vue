@@ -75,7 +75,7 @@
   const LightModeIcon = render({ name: 'emojione-v1:sun' })
   const DarkModeIcon = render({ name: 'fxemoji:lastquartermoonface' })
   const SwitchThemeModeValue = computed(() => {
-    if (SysStore.SysConfig.themeMode === 'light' || SysStore.SysConfig.themeMode === 'auto') {
+    if (SysStore.SysConfig.themeMode === 'light') {
       return false
     }
     return true
@@ -131,10 +131,10 @@
 
   .color-item-box {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     justify-items: center;
     align-content: center;
-    grid-row-gap: 8px;
+    grid-row-gap: 10px;
     color: #fff;
   }
 

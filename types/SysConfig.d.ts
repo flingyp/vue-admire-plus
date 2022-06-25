@@ -1,5 +1,16 @@
 namespace SysConfig {
-  type ThemeMode = 'light' | 'dark' | 'auto'
+  type ThemeMode = 'light' | 'dark' // 主题模式
+
+  type PrimaryColorPrefix = '--el-color-primary' // 主题色前缀
+
+  type PrimaryColorLightValue = '3' | '5' | '7' | '8' | '9'
+  type PrimaryColorDarkValue = '2'
+  // 系统主题色CSS变量的变量名集合
+  type PrimaryColorValue =
+    | '--el-color-primary'
+    | `${PrimaryColorPrefix}-dark-${PrimaryColorDarkValue}`
+    | `${PrimaryColorPrefix}-light-${PrimaryColorLightValue}`
+  type PrimaryColorGatherObject = Record<SysConfig.PrimaryColorValue, string>
 
   // 系统配置
   interface Config {
