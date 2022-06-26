@@ -54,8 +54,8 @@
 </script>
 
 <style scoped>
-  .el-menu-item.is-active {
-    background: var(--el-color-primary);
+  /* .el-menu-item.is-active {
+    background: var(--el-color-primary); 
     color: #ffffff;
-  }
+  } */
 </style>

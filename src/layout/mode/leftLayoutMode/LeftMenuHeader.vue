@@ -1,7 +1,8 @@
 <template>
   <section class="h-full flex items-center justify-between">
-    <div class="h-full">
+    <div class="h-full flex items-center justify-between">
       <GlobalLeftMenuCollapse></GlobalLeftMenuCollapse>
+      <GlobalBreadCrumb></GlobalBreadCrumb>
     </div>
     <div class="h-full">
       <GlobalFullScreenIcon></GlobalFullScreenIcon>
@@ -16,4 +17,5 @@
   import GlobalFullScreenIcon from '../../global/GlobalFullScreenIcon.vue'
   import GlobalSettingIcon from '../../global/GlobalSettingIcon.vue'
   import GlobalSysUserInfo from '../../global/GlobalSysUserInfo.vue'
+  import GlobalBreadCrumb from '../../global/GlobalBreadCrumb.vue'
 </script>

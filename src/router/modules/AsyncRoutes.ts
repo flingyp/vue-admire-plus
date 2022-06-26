@@ -7,7 +7,8 @@ const AsyncRouters: SysRouterMenu.VPlusRoute[] = [
     component: 'Layout',
     meta: {
       label: '权限测试',
-      permissions: ['sys:root:*']
+      permissions: ['sys:root:*'],
+      icon: 'arcticons:permissionchecker'
     },
     children: [
       {

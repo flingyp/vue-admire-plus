@@ -44,6 +44,7 @@
 
 <style scoped>
   .el-menu {
+    width: 100%;
     border-right: 0;
     border-bottom: 0;
   }

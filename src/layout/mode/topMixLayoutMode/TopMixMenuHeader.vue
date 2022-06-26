@@ -1,7 +1,10 @@
 <template>
   <el-row :gutter="20">
     <el-col :span="12" class="text-left">
-      <GlobalTitleLogo :SysTitle="SysStore.SysBaseConfig.title" class="pl-[1rem]"></GlobalTitleLogo>
+      <div class="h-full flex items-center">
+        <GlobalTitleLogo :SysTitle="SysStore.SysBaseConfig.title" class="ml-[1rem] mr-[5rem]"></GlobalTitleLogo>
+        <GlobalBreadCrumb></GlobalBreadCrumb>
+      </div>
     </el-col>
     <el-col :span="12" class="text-right">
       <GlobalLeftMenuCollapse></GlobalLeftMenuCollapse>
@@ -20,6 +23,7 @@
   import GlobalSettingIcon from '../../global/GlobalSettingIcon.vue'
   import GlobalSysUserInfo from '../../global/GlobalSysUserInfo.vue'
   import GlobalLeftMenuCollapse from '../../global/GlobalLeftMenuCollapse.vue'
+  import GlobalBreadCrumb from '../../global/GlobalBreadCrumb.vue'
 
   const SysStore = UseSysStore()
 </script>
