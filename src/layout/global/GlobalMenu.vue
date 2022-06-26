@@ -1,4 +1,6 @@
 <template>
+  <!-- background-color="rgb(0, 20, 40)" -->
+  <!-- text-color="#fff" -->
   <el-menu
     :mode="mode"
     :default-active="RouteKey"
@@ -28,7 +30,7 @@
     defaultKey: string
   }
 
-  const props = defineProps<GlobalMenuProps>()
+  defineProps<GlobalMenuProps>()
 
   // 监听路由的变化，更改菜单当前选中值
   const RouteKey = ref(route.name as string)

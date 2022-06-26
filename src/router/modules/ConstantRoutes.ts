@@ -102,6 +102,25 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
     ]
   },
   {
+    path: '/common',
+    name: 'Common',
+    component: 'Layout',
+    meta: {
+      label: '常用'
+    },
+    children: [
+      {
+        path: 'component',
+        name: 'CommonComponent',
+        component: '@/views/common/Component.vue',
+        meta: {
+          label: '常用组件',
+          icon: 'file-icons:test-typescript'
+        }
+      }
+    ]
+  },
+  {
     path: '/request',
     name: 'Request',
     component: '@/views/test/TestRequest.vue',

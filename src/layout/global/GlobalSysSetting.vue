@@ -60,6 +60,21 @@
         <el-color-picker v-model="SysStore.themeColor" @activeChange="changePrimaryColor" />
       </div>
     </GlobalSettingItem>
+
+    <!-- <GlobalSettingItem label="界面功能">
+      <div class="flex justify-between items-center">
+        <label class="text-[14px]">侧边菜单栏反转色</label>
+        <el-switch
+          v-model="SwitchThemeModeValue"
+          size="large"
+          inline-prompt
+          :width="50"
+          :active-icon="DarkModeIcon"
+          :inactive-icon="LightModeIcon"
+          @change="changeThemeMode"
+        />
+      </div>
+    </GlobalSettingItem> -->
   </el-drawer>
 </template>
 

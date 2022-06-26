@@ -1,5 +1,5 @@
 <template>
-  <div class="p-[1.5rem] pb-[5rem]">
+  <div class="p-[1rem] pb-[76px]">
     <el-card class="box-card" header="" :body-style="{ fontSize: '15px' }" shadow="hover">
       <template #header>
         <span class="text-[1.2rem] font-medium">VPlus Admin ✨✨✨</span>

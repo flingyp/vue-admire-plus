@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="SysStore.SysConfig.layoutMode === 'LEFT_MENU_MODE' || SysStore.SysConfig.layoutMode === 'LEFT_MENU_MIX_MODE'"
-    class="flex justify-center items-center w-full h-[60px] border-b border-solid border-[var(--el-menu-border-color)]"
+    class="flex justify-center items-center w-full h-[60px]"
   >
     <img :src="getImageUrl('SysLogo.png')" :alt="SysTitle" class="w-[2rem]" />
     <span v-show="!SysStore.SysConfig.leftMenuIsCollapsed" class="text-[0.9rem] ml-2 font-sans">{{ SysTitle }}</span>
