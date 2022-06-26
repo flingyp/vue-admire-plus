@@ -20,6 +20,7 @@ namespace SysConfig {
     themeMode: ThemeMode // 主题模式
     themeColor: string // 主题颜色
     themeColorArray: string[] // 系统内置的主题颜色数组
+    primaryColorGather: SysConfig.PrimaryColorGatherObject | undefined
   }
 
   // 统一响应数据结构

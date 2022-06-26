@@ -54,7 +54,8 @@ export const UseSysStore = defineStore('SysStore', {
         isShowSysDrawer: false,
         themeMode: judgeIsDarkMode() ? 'dark' : 'light',
         themeColor: getLocalKey('primaryColor') || ThemeColorArray[0],
-        themeColorArray: ThemeColorArray
+        themeColorArray: ThemeColorArray,
+        primaryColorGather: undefined
       },
       SysUserInfo: {}
     }
@@ -63,46 +64,7 @@ export const UseSysStore = defineStore('SysStore', {
   },
   getters: {
     themeColor: (state: ISysStoreState) => state.SysConfig.themeColor,
-    themeColorArray: (state: ISysStoreState) => state.SysConfig.themeColorArray,
-    primaryColorGather: (state: ISysStoreState): SysConfig.PrimaryColorGatherObject => {
-      // TODO: 打开控制台点击Vue DevTools getters 才执行了
-      console.log(22222222)
-
-      const ColorPrefix: SysConfig.PrimaryColorPrefix = '--el-color-primary'
-      const ColorGather: SysConfig.PrimaryColorGatherObject = {
-        '--el-color-primary': state.SysConfig.themeColor,
-        '--el-color-primary-dark-2': '',
-        '--el-color-primary-light-3': '',
-        '--el-color-primary-light-5': '',
-        '--el-color-primary-light-7': '',
-        '--el-color-primary-light-8': '',
-        '--el-color-primary-light-9': ''
-      }
-      // 基础色值
-      let BasicColor: '#000000' | '#FFFFFF' = '#FFFFFF'
-      // 主色值
-      document.documentElement.style.setProperty(ColorPrefix, state.SysConfig.themeColor)
-      // eslint-disable-next-line no-restricted-syntax
-      for (const key in ColorGather) {
-        // eslint-disable-next-line no-continue
-        if (key === ColorPrefix) continue
-        // 从key获取比例值
-        const PercentValue = key.match(/^--el-color-primary-(.*)-(\d*)$/) as RegExpMatchArray
-        if (PercentValue[1] === 'light') {
-          BasicColor = '#FFFFFF'
-        } else {
-          BasicColor = '#000000'
-        }
-        const Mix = CreateMixColor(BasicColor, ColorGather[ColorPrefix], Number(PercentValue[2]))
-        // @ts-ignore
-        ColorGather[key] = state.SysConfig.themeMode === 'light' ? Mix : TransformToDarken(Mix, 3)
-
-        // 修改系统中CSS当中的变量
-        // @ts-ignore
-        document.documentElement.style.setProperty(key, ColorGather[key])
-      }
-      return ColorGather
-    }
+    themeColorArray: (state: ISysStoreState) => state.SysConfig.themeColorArray
   },
   actions: {
     /**
@@ -139,7 +101,49 @@ export const UseSysStore = defineStore('SysStore', {
      */
     setThemeColor(value: string) {
       this.SysConfig.themeColor = value
+      // 设置本地缓存
       setLocalKey('primaryColor', value)
+      // 修改系统相关主题变量
+      this.setThemeColorCssVarious()
+    },
+    /**
+     * 设置系统色CSS变量
+     */
+    setThemeColorCssVarious() {
+      const ColorPrefix: SysConfig.PrimaryColorPrefix = '--el-color-primary'
+      const ColorGather: SysConfig.PrimaryColorGatherObject = {
+        '--el-color-primary': this.SysConfig.themeColor,
+        '--el-color-primary-dark-2': '',
+        '--el-color-primary-light-3': '',
+        '--el-color-primary-light-5': '',
+        '--el-color-primary-light-7': '',
+        '--el-color-primary-light-8': '',
+        '--el-color-primary-light-9': ''
+      }
+      // 基础色值
+      let BasicColor: '#000000' | '#FFFFFF' = '#FFFFFF'
+      // 主色值
+      document.documentElement.style.setProperty(ColorPrefix, this.SysConfig.themeColor)
+      // eslint-disable-next-line no-restricted-syntax
+      for (const key in ColorGather) {
+        // eslint-disable-next-line no-continue
+        if (key === ColorPrefix) continue
+        // 从key获取比例值
+        const PercentValue = key.match(/^--el-color-primary-(.*)-(\d*)$/) as RegExpMatchArray
+        if (PercentValue[1] === 'light') {
+          BasicColor = '#FFFFFF'
+        } else {
+          BasicColor = '#000000'
+        }
+        const Mix = CreateMixColor(BasicColor, ColorGather[ColorPrefix], Number(PercentValue[2]))
+        // @ts-ignore
+        ColorGather[key] = this.SysConfig.themeMode === 'light' ? Mix : TransformToDarken(Mix, 3)
+
+        // 修改系统中CSS当中的变量
+        // @ts-ignore
+        document.documentElement.style.setProperty(key, ColorGather[key])
+      }
+      this.SysConfig.primaryColorGather = ColorGather
     }
   }
 })

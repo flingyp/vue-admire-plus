@@ -56,12 +56,15 @@
           @click="changePrimaryColor(item)"
         ></span>
       </div>
+      <div class="mt-[1rem]">
+        <el-color-picker v-model="SysStore.themeColor" @activeChange="changePrimaryColor" />
+      </div>
     </GlobalSettingItem>
   </el-drawer>
 </template>
 
 <script setup lang="ts">
-  import { computed, ref, toRef, toRefs } from 'vue'
+  import { computed, onMounted } from 'vue'
   import { UseSysStore } from '@/store/modules/SysStore'
   import { render } from '@/utils/common/IconifyRenderComponent'
 
@@ -119,9 +122,21 @@
   const handleClose = () => {
     SysStore.SysConfig.isShowSysDrawer = false
   }
+
+  // 系统相关内容初始化
+  onMounted(() => {
+    // 主题色初始化
+    SysStore.setThemeColor(SysStore.SysConfig.themeColor)
+  })
 </script>
 
-<style scoped>
+<style>
+  .el-color-picker,
+  .el-color-picker__trigger {
+    width: 100% !important;
+    /* height: 36px !important; */
+  }
+
   .checkbox-shadow {
     box-shadow: 0 1px 2.5px rgba(0, 0, 0, 0.18);
   }
