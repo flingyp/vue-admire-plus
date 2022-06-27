@@ -38,6 +38,7 @@
     //  当发现路由跳转了，及时修改页面标题的Title
     const pageTitle = `${route.meta.label} | VPlus Admin` || 'VPlus Admin'
     document.getElementsByTagName('title')[0].innerHTML = `${pageTitle}`
+
     RouteKey.value = route.name as string
   })
 </script>

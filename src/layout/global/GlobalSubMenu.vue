@@ -48,6 +48,7 @@
       // 外链跳转
       window.open(CurrentRoute.meta.url)
     } else {
+      SysRouteMenuStore.addHistoryMenu(RouterName.index)
       router.push({ name: RouterName.index })
     }
   }

@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-  import { SysRouterMenu } from 'types/SysRouterMenu'
   import { ref, watchEffect } from 'vue'
   import { useRoute } from 'vue-router'
+  import type { SysRouterMenu } from 'types/SysRouterMenu'
   import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 
   import IconifyCom from '@/components/IconifyCom.vue'

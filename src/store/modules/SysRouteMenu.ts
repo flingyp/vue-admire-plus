@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { SysRouterMenu } from 'types/SysRouterMenu'
 import { RouteRecordRaw } from 'vue-router'
+import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 interface ISysRouteMenuStoreState {
   IsAddAsyncRouter: boolean // 是否挂载了异步路由
@@ -13,6 +14,7 @@ interface ISysRouteMenuStoreState {
   AllAsyncRouterRecord: RouteRecordRaw[] // 所有VueRouter异步路由
   AllMenuRecord: SysRouterMenu.MenuRecord[] // 所有菜单
   AllRouteCollect: RouteRecordRaw[] // 所有路由集合
+  AllHistoryMenuRecord: string[] // 所有历史菜单集合
 }
 
 export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
@@ -27,10 +29,52 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
       AllConstantRouterRecord: [],
       AllAsyncRouterRecord: [],
       AllMenuRecord: [],
-      AllRouteCollect: []
+      AllRouteCollect: [],
+      AllHistoryMenuRecord: getLocalKey('historyMenu')?.split(',') || []
     }
-
     return SysRouteMenuStore
   },
-  actions: {}
+  getters: {
+    AllHistoryMenu() {
+      const AllHistoryMenu: SysRouterMenu.MenuRecord[] = []
+      const recursionAllMenu = (allMenu: SysRouterMenu.MenuRecord[], key: string) => {
+        allMenu.forEach(menu => {
+          if (menu.children && menu.children.length !== 0) {
+            recursionAllMenu(menu.children, key)
+          }
+          if (menu.key === key) {
+            AllHistoryMenu.push(menu)
+          }
+        })
+      }
+      this.AllHistoryMenuRecord.forEach(routeName => {
+        recursionAllMenu(this.AllMenuRecord, routeName)
+      })
+      return AllHistoryMenu
+    }
+  },
+  actions: {
+    /**
+     * 添加历史菜单Tab
+     * @param value
+     */
+    addHistoryMenu(value: string) {
+      if (!this.AllHistoryMenuRecord.includes(value)) {
+        this.AllHistoryMenuRecord.push(value)
+        setLocalKey('historyMenu', this.AllHistoryMenuRecord.toString())
+      }
+    },
+    deleteHistoryMenu(value: string) {
+      if (this.AllHistoryMenuRecord.includes(value)) {
+        this.AllHistoryMenuRecord.splice(
+          this.AllHistoryMenuRecord.findIndex((key: string) => {
+            return key === value
+          }),
+          1
+        )
+
+        setLocalKey('historyMenu', this.AllHistoryMenuRecord.toString())
+      }
+    }
+  }
 })

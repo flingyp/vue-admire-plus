@@ -1,5 +1,12 @@
 <template>
-  <Icon :icon="name" :inline="isInline" :width="width" :height="height" :color="color"></Icon>
+  <Icon
+    :icon="name"
+    :inline="isInline"
+    :width="width"
+    :height="height"
+    :color="color"
+    class="!align-text-bottom"
+  ></Icon>
 </template>
 
 <script setup lang="ts">
