@@ -1,5 +1,4 @@
 <template>
-  <!-- tag-button-active -->
   <div
     :class="route.name === routeName ? 'tag-button-active' : ''"
     class="tag-button-box flex items-center justify-between border border-solid border-[var(--el-border-color)] rounded-md px-[8px] py-[5px] text-[14px] ml-[4px] mr-[4px] cursor-pointer"
@@ -51,5 +50,6 @@
   div.tag-button-active {
     color: var(--el-color-primary);
     background: var(--el-color-primary-light-7);
+    border-color: var(--el-color-primary-light-7);
   }
 </style>

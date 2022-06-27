@@ -111,7 +111,7 @@
       const UserToken = await userLoginApi(LoginModel.username, LoginModel.password)
       setLocalKey('token', UserToken)
       // 登录后台系统
-      router.push({ name: 'TestIndex' })
+      router.push({ name: 'AboutIndex' })
     })
   }
 </script>

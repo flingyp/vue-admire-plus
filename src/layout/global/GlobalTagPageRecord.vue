@@ -3,7 +3,7 @@
     class="w-full h-[46px] bg-[var(--el-bg-color)] text-[var(--el-text-color-primary)] border-b border-solid border-[var(--el-border-color)] flex justify-between items-center"
   >
     <div
-      class="tag-buttons-box h-full flex-1 flex items-center justify-start mr-[10px] overflow-x-scroll overflow-y-hidden"
+      class="tag-buttons-box h-full flex-1 flex items-center justify-start overflow-x-scroll overflow-y-hidden pt-[6px]"
     >
       <GlobalTagButton
         v-for="item in SysRouteMenuStore.AllHistoryMenu"
@@ -14,21 +14,60 @@
         @click="nativeToRoute(item.key)"
       ></GlobalTagButton>
     </div>
-    <div class="w-[100px] h-full">右边</div>
+    <div class="h-full flex items-center mr-[10px]">
+      <el-dropdown @command="clickDropDownItem">
+        <IconifyCom class="cursor-pointer" name="carbon:down-to-bottom" width="20" height="20"></IconifyCom>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="reload">重新加载</el-dropdown-item>
+            <el-dropdown-item command="close-current" :disabled="SysRouteMenuStore.AllHistoryMenu.length === 1"
+              >关闭当前页</el-dropdown-item
+            >
+            <el-dropdown-item command="close-others" :disabled="SysRouteMenuStore.AllHistoryMenu.length <= 1"
+              >关闭其它页</el-dropdown-item
+            >
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { useRouter } from 'vue-router'
+  import { useRoute, useRouter } from 'vue-router'
+  import { UseSysStore } from '@/store/modules/SysStore'
   import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 
+  import IconifyCom from '@/components/IconifyCom.vue'
   import GlobalTagButton from './GlobalTagButton.vue'
 
-  const SysRouteMenuStore = UseSysRouteMenuStore()
+  const route = useRoute()
   const router = useRouter()
+  const SysStore = UseSysStore()
+  const SysRouteMenuStore = UseSysRouteMenuStore()
 
   const nativeToRoute = (value: string) => {
     router.push({ name: value })
+  }
+
+  const clickDropDownItem = (command: string) => {
+    if (command === 'reload') {
+      SysStore.setIsNeedReload(true)
+      setTimeout(() => {
+        SysStore.setIsNeedReload(false)
+      }, 2500)
+    }
+    if (command === 'close-current') {
+      SysRouteMenuStore.IsDeleteCurrentRouteMenu = true
+    }
+    if (command === 'close-others') {
+      const CurrentHistoryMenu = SysRouteMenuStore.AllHistoryMenu.find(menu => {
+        return menu.key === route.name
+      })
+      if (CurrentHistoryMenu) {
+        SysRouteMenuStore.AllHistoryMenuRecord = [CurrentHistoryMenu.key]
+      }
+    }
   }
 </script>
 

@@ -6,6 +6,7 @@ import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 interface ISysRouteMenuStoreState {
   IsAddAsyncRouter: boolean // 是否挂载了异步路由
   IsMounted404Router: boolean // 是否挂载了404路由
+  IsDeleteCurrentRouteMenu: boolean // 是否是删除当前路由菜单
   ConstantVPlusRouters: SysRouterMenu.VPlusRoute[] // 所有常量路由
   AsyncVPlusRouters: SysRouterMenu.VPlusRoute[] // 所有异步路由
   MountedAsyncVPlusRouters: SysRouterMenu.VPlusRoute[] // 所有挂载成功的异步路由
@@ -22,6 +23,7 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
     const SysRouteMenuStore: ISysRouteMenuStoreState = {
       IsAddAsyncRouter: false,
       IsMounted404Router: false,
+      IsDeleteCurrentRouteMenu: false,
       ConstantVPlusRouters: [],
       AsyncVPlusRouters: [],
       MountedAsyncVPlusRouters: [],
@@ -64,17 +66,22 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
         setLocalKey('historyMenu', this.AllHistoryMenuRecord.toString())
       }
     },
-    deleteHistoryMenu(value: string) {
+    /**
+     * 删除一个历史菜单Tab
+     * @param value
+     * @returns: number: 返回删除的那个菜单的下标
+     */
+    deleteHistoryMenu(value: string): number {
+      let CurrentMenuIndex = -1
       if (this.AllHistoryMenuRecord.includes(value)) {
-        this.AllHistoryMenuRecord.splice(
-          this.AllHistoryMenuRecord.findIndex((key: string) => {
-            return key === value
-          }),
-          1
-        )
-
+        CurrentMenuIndex = this.AllHistoryMenuRecord.findIndex((key: string) => {
+          return key === value
+        })
+        console.log(CurrentMenuIndex)
+        this.AllHistoryMenuRecord.splice(CurrentMenuIndex, 1)
         setLocalKey('historyMenu', this.AllHistoryMenuRecord.toString())
       }
+      return CurrentMenuIndex
     }
   }
 })

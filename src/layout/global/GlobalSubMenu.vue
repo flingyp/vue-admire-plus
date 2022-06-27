@@ -48,7 +48,8 @@
       // 外链跳转
       window.open(CurrentRoute.meta.url)
     } else {
-      SysRouteMenuStore.addHistoryMenu(RouterName.index)
+      // 路由发生变换，添加Tab历史路由
+      // SysRouteMenuStore.addHistoryMenu(RouterName.index)
       router.push({ name: RouterName.index })
     }
   }

@@ -55,7 +55,8 @@ export const UseSysStore = defineStore('SysStore', {
         themeMode: judgeIsDarkMode() ? 'dark' : 'light',
         themeColor: getLocalKey('primaryColor') || ThemeColorArray[0],
         themeColorArray: ThemeColorArray,
-        primaryColorGather: undefined
+        primaryColorGather: undefined,
+        isNeedReload: false
       },
       SysUserInfo: {}
     }
@@ -95,6 +96,7 @@ export const UseSysStore = defineStore('SysStore', {
      */
     setThemeMode(value: SysConfig.ThemeMode) {
       this.SysConfig.themeMode = value
+      this.setThemeColor(this.SysConfig.themeColor)
     },
     /**
      * 设置主题颜色
@@ -144,6 +146,13 @@ export const UseSysStore = defineStore('SysStore', {
         document.documentElement.style.setProperty(key, ColorGather[key])
       }
       this.SysConfig.primaryColorGather = ColorGather
+    },
+    /**
+     * 设置页面是否需要重新加载
+     * @param value
+     */
+    setIsNeedReload(value: boolean) {
+      this.SysConfig.isNeedReload = value
     }
   }
 })
