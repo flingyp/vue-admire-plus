@@ -14,5 +14,7 @@ declare module 'vue-router' {
     link?: 'SYS_LINK' | 'INTERNAL_LINK' | 'EXTERNAL_LINK'
     // 内链、外链的链接地址
     url?: string
+    // 路由是否缓存（默认缓存）
+    cache?: boolean
   }
 }

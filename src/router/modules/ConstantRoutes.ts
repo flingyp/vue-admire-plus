@@ -73,7 +73,7 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
         component: 'Iframe',
         meta: {
           label: 'ElementPlus',
-          icon: 'logos:element',
+          icon: 'ep:element-plus',
           link: 'INTERNAL_LINK',
           url: 'https://element-plus.gitee.io/zh-CN'
         }
@@ -124,8 +124,8 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
         name: 'CommonComponent',
         component: '@/views/common/Component.vue',
         meta: {
-          label: 'Element-Plus常用组件',
-          icon: 'file-icons:test-typescript'
+          label: 'ElementPlus常用组件',
+          icon: 'ep:element-plus'
         }
       },
       {
@@ -154,7 +154,17 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
         component: '@/views/plugins/EchartPlugin.vue',
         meta: {
           label: 'Echarts图表',
-          icon: 'et:piechart'
+          icon: 'et:piechart',
+          cache: false
+        }
+      },
+      {
+        path: 'richText',
+        name: 'PluginRichText',
+        component: '@/views/plugins/RichTextPlugin.vue',
+        meta: {
+          label: '富文本编辑器',
+          icon: 'bi:journal-richtext'
         }
       }
     ]

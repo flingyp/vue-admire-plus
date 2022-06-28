@@ -4,7 +4,16 @@
   <!-- TODO: 动态配置动画效果 -->
   <router-view v-slot="{ Component, route }" v-if="!SysStore.SysConfig.isNeedReload">
     <transition name="fade-slide" mode="out-in" appear>
+      <keep-alive v-if="route.meta.cache == null || route.meta.cache"
+        ><component
+          :is="Component"
+          :key="route.path"
+          :style="{ height: SysStore.contentHeight }"
+          class="overflow-x-hidden p-[1rem]"
+        ></component
+      ></keep-alive>
       <component
+        v-else
         :is="Component"
         :key="route.path"
         :style="{ height: SysStore.contentHeight }"

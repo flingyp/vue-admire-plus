@@ -51,6 +51,7 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     IconifyCom: typeof import('./components/IconifyCom.vue')['default']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
+    RichTextCom: typeof import('./components/RichTextCom.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgFileCom: typeof import('./components/SvgFileCom.vue')['default']
