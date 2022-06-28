@@ -1,6 +1,8 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@amap/amap-jsapi-loader': ^1.0.1
+  '@amap/amap-jsapi-types': ^0.0.8
   '@commitlint/cli': ^17.0.1
   '@commitlint/config-conventional': ^17.0.0
   '@element-plus/icons-vue': ^2.0.1
@@ -48,6 +50,8 @@ specifiers:
   windicss: ^3.5.4
 
 dependencies:
+  '@amap/amap-jsapi-loader': 1.0.1
+  '@amap/amap-jsapi-types': 0.0.8
   '@element-plus/icons-vue': 2.0.1_vue@3.2.36
   '@types/nprogress': 0.2.0
   '@vueuse/core': 8.6.0_vue@3.2.36
@@ -97,6 +101,14 @@ devDependencies:
   windicss: 3.5.4
 
 packages:
+
+  /@amap/amap-jsapi-loader/1.0.1:
+    resolution: {integrity: sha512-nPyLKt7Ow/ThHLkSvn2etQlUzqxmTVgK7bIgwdBRTg2HK5668oN7xVxkaiRe3YZEzGzfV2XgH5Jmu2T73ljejw==}
+    dev: false
+
+  /@amap/amap-jsapi-types/0.0.8:
+    resolution: {integrity: sha512-q0FyZDIJcXjsMLGc3oS9rjfJsErOvt9rcp6AgzY4k14vo7bBhdq4eKwoSdVp/pYjR/rfaKBns5v10ycZOFwf/A==}
+    dev: false
 
   /@antfu/install-pkg/0.1.0:
     resolution: {integrity: sha512-VaIJd3d1o7irZfK1U0nvBsHMyjkuyMP3HKYVV53z8DKyulkHKmjhhtccXO51WSPeeSHIeoJEoNOKavYpS7jkZw==}

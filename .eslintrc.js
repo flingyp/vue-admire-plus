@@ -26,6 +26,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'vue/no-v-model-argument': 'off',
+    'no-underscore-dangle': 'off',
     'no-unused-vars': 'off',
     'no-plusplus': 'off',
     'import/prefer-default-export': 'off',

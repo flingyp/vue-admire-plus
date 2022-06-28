@@ -49,6 +49,7 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
+    GaodeMapCom: typeof import('./components/GaodeMapCom.vue')['default']
     IconifyCom: typeof import('./components/IconifyCom.vue')['default']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
     MdEditorV3Com: typeof import('./components/MdEditorV3Com.vue')['default']

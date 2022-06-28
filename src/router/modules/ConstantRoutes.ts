@@ -175,6 +175,24 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
           label: 'Markdown编辑器',
           icon: 'bi:markdown'
         }
+      },
+      {
+        path: 'gaoDeMap',
+        name: 'PluginGaodeMap',
+        component: '@/views/plugins/GaodeMapPlugin.vue',
+        meta: {
+          label: '高德地图',
+          icon: 'carbon:map-center'
+        }
+      },
+      {
+        path: 'tencentMap',
+        name: 'PluginTencentMap',
+        component: '@/views/plugins/TencentMapPlugin.vue',
+        meta: {
+          label: '腾讯地图',
+          icon: 'carbon:map-center'
+        }
       }
     ]
   },

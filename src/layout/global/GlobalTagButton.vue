@@ -1,15 +1,16 @@
 <template>
   <div
+    class="cursor-pointer border border-solid border-[var(--el-border-color)] rounded-md h-full px-[1rem] py-[0.8rem] rounded-md mx-[0.5rem] flex items-center"
     :class="route.name === routeName ? 'tag-button-active' : ''"
-    class="tag-button-box flex items-center justify-between border border-solid border-[var(--el-border-color)] rounded-md px-[8px] text-[14px] ml-[4px] mr-[4px] cursor-pointer"
   >
-    <section class="inline-block">
-      <IconifyCom :name="icon" width="18" height="18" class="mr-[2px]"></IconifyCom>
-      <span>{{ label }}</span>
-    </section>
-    <section class="inline-block" v-if="route.name !== routeName" @click.stop="deleteHistoryMenu(routeName)">
-      <IconifyCom name="clarity:window-close-line" width="18" height="18"></IconifyCom>
-    </section>
+    <span class="mr-[0.5rem] cursor-pointer">{{ label }}</span>
+    <IconifyCom
+      v-if="route.name !== routeName"
+      name="clarity:window-close-line"
+      width="18"
+      height="18"
+      @click.stop="deleteHistoryMenu(routeName)"
+    ></IconifyCom>
   </div>
 </template>
 
@@ -34,12 +35,6 @@
 </script>
 
 <style scoped>
-  div.tag-button-box {
-    height: 100%;
-    min-height: 20px;
-    max-height: 50px;
-    min-width: 80px;
-  }
   div.tag-button-box:hover {
     color: var(--el-color-primary);
     border-color: var(--el-color-primary-light-3);

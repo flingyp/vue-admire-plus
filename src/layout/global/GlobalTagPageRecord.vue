@@ -4,7 +4,7 @@
     class="w-full bg-[var(--el-bg-color)] text-[var(--el-text-color-primary)] border-b border-solid border-[var(--el-border-color)] flex justify-between items-center"
   >
     <div
-      class="tag-buttons-box h-full flex-1 flex items-center justify-start overflow-x-scroll overflow-y-hidden pt-[6px]"
+      class="tag-buttons-box h-full flex-[1] flex items-center justify-start overflow-x-auto whitespace-nowrap overflow-y-hidden py-[6px]"
     >
       <GlobalTagButton
         v-for="item in SysRouteMenuStore.AllHistoryMenu"
@@ -15,7 +15,7 @@
         @click="nativeToRoute(item.key)"
       ></GlobalTagButton>
     </div>
-    <div class="h-full flex items-center mr-[10px]">
+    <div class="h-full flex items-center mx-[15px]">
       <el-dropdown @command="clickDropDownItem">
         <IconifyCom class="cursor-pointer" name="carbon:down-to-bottom" width="20" height="20"></IconifyCom>
         <template #dropdown>
