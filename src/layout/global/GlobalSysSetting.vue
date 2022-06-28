@@ -61,25 +61,31 @@
       </div>
     </GlobalSettingItem>
 
-    <!-- <GlobalSettingItem label="界面功能">
-      <div class="flex justify-between items-center">
-        <label class="text-[14px]">侧边菜单栏反转色</label>
-        <el-switch
-          v-model="SwitchThemeModeValue"
-          size="large"
-          inline-prompt
-          :width="50"
-          :active-icon="DarkModeIcon"
-          :inactive-icon="LightModeIcon"
-          @change="changeThemeMode"
+    <GlobalSettingItem label="界面功能">
+      <div class="flex justify-between items-center view-function-item">
+        <label class="text-[14px]">自定义头部高度</label>
+        <el-input-number
+          v-model="CustomHeaderHeight"
+          :min="MixHeaderHeight"
+          :max="MaxHeaderHeight"
+          @change="handleHeaderHeightChange"
         />
       </div>
-    </GlobalSettingItem> -->
+      <div class="flex justify-between items-center view-function-item">
+        <label class="text-[14px]">自定义标签页高度</label>
+        <el-input-number
+          v-model="CustomTagHeight"
+          :min="MixTagHeight"
+          :max="MaxTagHeight"
+          @change="handleTagHeightChange"
+        />
+      </div>
+    </GlobalSettingItem>
   </el-drawer>
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted } from 'vue'
+  import { ref, computed, onMounted } from 'vue'
   import { UseSysStore } from '@/store/modules/SysStore'
   import { render } from '@/utils/common/IconifyRenderComponent'
 
@@ -131,6 +137,20 @@
   // 第三部分：主题色模式相关
   const changePrimaryColor = (color: string) => {
     SysStore.setThemeColor(color)
+  }
+
+  // 第四部分：界面功能
+  const CustomHeaderHeight = ref(SysStore.SysConfig.customHeaderHeight)
+  const MixHeaderHeight = ref(30)
+  const MaxHeaderHeight = ref(90)
+  const handleHeaderHeightChange = (value: number) => {
+    SysStore.SysConfig.customHeaderHeight = value
+  }
+  const CustomTagHeight = ref(SysStore.SysConfig.customTagHeight)
+  const MixTagHeight = ref(35)
+  const MaxTagHeight = ref(55)
+  const handleTagHeightChange = (value: number) => {
+    SysStore.SysConfig.customTagHeight = value
   }
 
   // 最后部分：关闭系统抽屉
@@ -187,5 +207,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 14px;
+  }
+
+  .view-function-item:not(:last-of-type) {
+    margin-bottom: 20px;
   }
 </style>

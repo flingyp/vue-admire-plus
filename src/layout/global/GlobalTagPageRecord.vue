@@ -1,6 +1,7 @@
 <template>
   <div
-    class="w-full h-[46px] bg-[var(--el-bg-color)] text-[var(--el-text-color-primary)] border-b border-solid border-[var(--el-border-color)] flex justify-between items-center"
+    :style="{ height: SysStore.SysConfig.customTagHeight + 'px' }"
+    class="w-full bg-[var(--el-bg-color)] text-[var(--el-text-color-primary)] border-b border-solid border-[var(--el-border-color)] flex justify-between items-center"
   >
     <div
       class="tag-buttons-box h-full flex-1 flex items-center justify-start overflow-x-scroll overflow-y-hidden pt-[6px]"

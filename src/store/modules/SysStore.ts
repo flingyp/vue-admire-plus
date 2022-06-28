@@ -56,7 +56,9 @@ export const UseSysStore = defineStore('SysStore', {
         themeColor: getLocalKey('primaryColor') || ThemeColorArray[0],
         themeColorArray: ThemeColorArray,
         primaryColorGather: undefined,
-        isNeedReload: false
+        isNeedReload: false,
+        customHeaderHeight: 60,
+        customTagHeight: 45
       },
       SysUserInfo: {}
     }
@@ -65,7 +67,9 @@ export const UseSysStore = defineStore('SysStore', {
   },
   getters: {
     themeColor: (state: ISysStoreState) => state.SysConfig.themeColor,
-    themeColorArray: (state: ISysStoreState) => state.SysConfig.themeColorArray
+    themeColorArray: (state: ISysStoreState) => state.SysConfig.themeColorArray,
+    mainHeight: (state: ISysStoreState) => `calc(100vh - ${state.SysConfig.customHeaderHeight}px)`,
+    contentHeight: (state: ISysStoreState) => `calc(100% - ${state.SysConfig.customTagHeight}px)`
   },
   actions: {
     /**

@@ -4,7 +4,12 @@
   <!-- TODO: 动态配置动画效果 -->
   <router-view v-slot="{ Component, route }" v-if="!SysStore.SysConfig.isNeedReload">
     <transition name="fade-slide" mode="out-in" appear>
-      <component :is="Component" :key="route.path" class="overflow-x-hidden h-[calc(100%-46px)] p-[1rem]"></component>
+      <component
+        :is="Component"
+        :key="route.path"
+        :style="{ height: SysStore.contentHeight }"
+        class="overflow-x-hidden p-[1rem]"
+      ></component>
     </transition>
   </router-view>
   <!-- 重新加载中...... -->
@@ -12,7 +17,8 @@
     v-else
     v-loading="PageLoading"
     element-loading-text="重新加载中......"
-    class="w-full h-[calc(100%-46px)]"
+    :style="{ height: SysStore.contentHeight }"
+    class="w-full"
   ></el-container>
 </template>
 

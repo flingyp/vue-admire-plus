@@ -10,13 +10,21 @@
     </el-aside>
 
     <!-- 顶部左侧菜单混合模式、顶部菜单模式-头部栏 -->
-    <el-header v-if="IsTopAndTopMixHeader" class="border-b border-solid border-[var(--el-border-color)]">
+    <el-header
+      v-if="IsTopAndTopMixHeader"
+      class="border-b border-solid border-[var(--el-border-color)] overflow-hidden"
+      :style="{ height: SysStore.SysConfig.customHeaderHeight + 'px' }"
+    >
       <slot name="header"> 头部栏 </slot>
     </el-header>
 
     <el-container>
       <!-- 左侧菜单模式-头部栏 -->
-      <el-header v-if="IsLeftHeader" class="border-b border-solid border-[var(--el-border-color)]">
+      <el-header
+        v-if="IsLeftHeader"
+        class="border-b border-solid border-[var(--el-border-color)] overflow-hidden"
+        :style="{ height: SysStore.SysConfig.customHeaderHeight + 'px' }"
+      >
         <slot name="header"> 头部栏 </slot>
       </el-header>
 
@@ -30,7 +38,7 @@
       </el-aside>
 
       <!-- 所有布局模式-公共部分 -->
-      <el-main class="h-[calc(100vh-60px)]">
+      <el-main :style="{ height: SysStore.mainHeight }" class="overflow-y-hidden">
         <slot name="main"> 内容部分 </slot>
       </el-main>
     </el-container>

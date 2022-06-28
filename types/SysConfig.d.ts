@@ -22,6 +22,8 @@ namespace SysConfig {
     themeColorArray: string[] // 系统内置的主题颜色数组
     primaryColorGather: SysConfig.PrimaryColorGatherObject | undefined // 系统主题色相关变量集合
     isNeedReload: boolean // 页面是否需要重新加载
+    customHeaderHeight: number // 自定义头部高度
+    customTagHeight: number // 自定义Tag高度
   }
 
   // 统一响应数据结构
