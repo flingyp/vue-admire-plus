@@ -166,6 +166,15 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
           label: '富文本编辑器',
           icon: 'bi:journal-richtext'
         }
+      },
+      {
+        path: 'mdText',
+        name: 'PluginMarkdownText',
+        component: '@/views/plugins/MarkdownTextPlugin.vue',
+        meta: {
+          label: 'Markdown编辑器',
+          icon: 'bi:markdown'
+        }
       }
     ]
   },

@@ -25,6 +25,7 @@
     "echarts": "^5.3.3",
     "element-plus": "^2.2.2",
     "lodash": "^4.17.21",
+    "md-editor-v3": "^2.2.0",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.14",
