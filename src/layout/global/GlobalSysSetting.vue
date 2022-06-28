@@ -63,7 +63,7 @@
 
     <GlobalSettingItem label="界面功能">
       <div class="flex justify-between items-center view-function-item">
-        <label class="text-[14px]">自定义头部高度</label>
+        <label class="text-[14px]">头部高度</label>
         <el-input-number
           v-model="CustomHeaderHeight"
           :min="MixHeaderHeight"
@@ -72,7 +72,7 @@
         />
       </div>
       <div class="flex justify-between items-center view-function-item">
-        <label class="text-[14px]">自定义标签页高度</label>
+        <label class="text-[14px]">标签页高度</label>
         <el-input-number
           v-model="CustomTagHeight"
           :min="MixTagHeight"
@@ -141,8 +141,8 @@
 
   // 第四部分：界面功能
   const CustomHeaderHeight = ref(SysStore.SysConfig.customHeaderHeight)
-  const MixHeaderHeight = ref(30)
-  const MaxHeaderHeight = ref(90)
+  const MixHeaderHeight = ref(50)
+  const MaxHeaderHeight = ref(70)
   const handleHeaderHeightChange = (value: number) => {
     SysStore.SysConfig.customHeaderHeight = value
   }

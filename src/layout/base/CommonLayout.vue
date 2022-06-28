@@ -3,7 +3,7 @@
   <BasicLayoutSlot>
     <template #header>
       <keep-alive>
-        <Component :is="CurrentLayoutModeHeader"></Component>
+        <Component :is="CurrentLayoutModeHeader" class="h-full"></Component>
       </keep-alive>
     </template>
     <template #aside>
