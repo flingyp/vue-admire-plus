@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-[80rem] p-[3rem]">
+  <div>
     <MdEditorV3Com v-model:text="markdownText"></MdEditorV3Com>
   </div>
 </template>

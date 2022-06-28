@@ -1,5 +1,5 @@
 <template>
-  <div class="p-0" id="Tencent-Container"></div>
+  <div class="!p-0" id="Tencent-Container"></div>
 </template>
 
 <script setup lang="ts">
