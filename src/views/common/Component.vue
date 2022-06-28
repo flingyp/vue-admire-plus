@@ -1,5 +1,5 @@
 <template>
-  <div class="p-[1rem] pb-[76px]">
+  <div>
     <el-card>
       <template #header> 走马灯组件 </template>
       <el-carousel :interval="4000" type="card" height="200px">

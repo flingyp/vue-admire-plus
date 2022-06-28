@@ -4,7 +4,7 @@
   <!-- TODO: 动态配置动画效果 -->
   <router-view v-slot="{ Component, route }" v-if="!SysStore.SysConfig.isNeedReload">
     <transition name="fade-slide" mode="out-in" appear>
-      <component :is="Component" :key="route.path" class="h-full max-h-full overflow-x-hidden"></component>
+      <component :is="Component" :key="route.path" class="overflow-x-hidden h-[calc(100%-46px)] p-[1rem]"></component>
     </transition>
   </router-view>
   <!-- 重新加载中...... -->

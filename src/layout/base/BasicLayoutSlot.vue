@@ -30,7 +30,7 @@
       </el-aside>
 
       <!-- 所有布局模式-公共部分 -->
-      <el-main>
+      <el-main class="h-[calc(100vh-60px)]">
         <slot name="main"> 内容部分 </slot>
       </el-main>
     </el-container>
