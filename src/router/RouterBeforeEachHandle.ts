@@ -3,6 +3,7 @@
  */
 
 import { NavigationGuardNext, RouteLocationNormalized, Router } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 
 import lodash from 'lodash'
 
@@ -17,7 +18,8 @@ import transformVPlusRouteToRouteRecordRaw from './utils/TransformVPlusRoute'
 import createSysMenuRecord from './utils/CreateSysMenu'
 
 // 所有的系统路由
-import ConstantRoutes from './modules/ConstantRoutes'
+import ConstantRoutes, { Redirect404Router } from './modules/ConstantRoutes'
+
 import AsyncRouters from './modules/AsyncRoutes'
 
 /**
@@ -111,11 +113,11 @@ export default async (
       next({ name: 'TestIndex' })
     }
 
-    // TODO: 挂载404通用路由 只在系统第一次进行挂载即可
-    // if (!isMounted404Router) {
-    //   mountRoute(redirect404Router as RouteRecordRaw, routerInstance)
-    //   isMounted404Router = true
-    // }
+    // 挂载404通用路由 只在系统第一次进行挂载即可
+    if (!SysRouteMenuStore.IsMounted404Router) {
+      mountRoute(Redirect404Router as RouteRecordRaw, RouterInstance)
+      SysRouteMenuStore.IsMounted404Router = true
+    }
 
     // 路由放行
     next()

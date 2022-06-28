@@ -11,6 +11,15 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
     }
   },
   {
+    path: '/404',
+    name: 'Sys_404',
+    component: '@/views/system/notFound/NotFound.vue',
+    meta: {
+      label: '页面不存在',
+      isShow: false
+    }
+  },
+  {
     path: '/login',
     name: 'LoginIndex',
     component: '@/views/system/login/LoginIndex.vue',
@@ -106,7 +115,8 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
     name: 'Common',
     component: 'Layout',
     meta: {
-      label: '常用'
+      label: '系统组件',
+      icon: 'material-symbols:energy-program-time-used'
     },
     children: [
       {
@@ -114,8 +124,17 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
         name: 'CommonComponent',
         component: '@/views/common/Component.vue',
         meta: {
-          label: '常用组件',
+          label: 'Element-Plus常用组件',
           icon: 'file-icons:test-typescript'
+        }
+      },
+      {
+        path: '404',
+        name: 'Common404',
+        component: '@/views/system/notFound/NotFound.vue',
+        meta: {
+          label: '404页面',
+          icon: 'tabler:error-404'
         }
       }
     ]
@@ -141,3 +160,12 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
 ]
 
 export default ConstantRoutes
+
+export const Redirect404Router: SysRouterMenu.VPlusRoute = {
+  path: '/:catchAll(.*)',
+  name: '404',
+  redirect: '/404',
+  meta: {
+    isShow: false
+  }
+}
