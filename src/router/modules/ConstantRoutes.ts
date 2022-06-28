@@ -13,7 +13,7 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
   {
     path: '/404',
     name: 'Sys_404',
-    component: '@/views/system/notFound/NotFound.vue',
+    component: '@/views/common/NotFound.vue',
     meta: {
       label: '页面不存在',
       isShow: false
@@ -115,7 +115,7 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
     name: 'Common',
     component: 'Layout',
     meta: {
-      label: '系统组件',
+      label: '常用组件',
       icon: 'material-symbols:energy-program-time-used'
     },
     children: [
@@ -131,10 +131,30 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
       {
         path: '404',
         name: 'Common404',
-        component: '@/views/system/notFound/NotFound.vue',
+        component: '@/views/common/NotFound.vue',
         meta: {
           label: '404页面',
           icon: 'tabler:error-404'
+        }
+      }
+    ]
+  },
+  {
+    path: '/plugins',
+    name: 'Plugin',
+    component: 'Layout',
+    meta: {
+      label: '相关插件',
+      icon: 'material-symbols:energy-program-time-used'
+    },
+    children: [
+      {
+        path: 'echart',
+        name: 'PluginEchart',
+        component: '@/views/plugins/EchartPlugin.vue',
+        meta: {
+          label: 'Echarts图表',
+          icon: 'et:piechart'
         }
       }
     ]

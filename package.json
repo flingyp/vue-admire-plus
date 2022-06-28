@@ -20,6 +20,7 @@
     "@vueuse/core": "^8.6.0",
     "axios": "^0.27.2",
     "chroma-js": "^2.4.2",
+    "echarts": "^5.3.3",
     "element-plus": "^2.2.2",
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
