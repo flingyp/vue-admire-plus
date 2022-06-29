@@ -28,7 +28,6 @@
       removeLocalKey('token')
       removeLocalKey('layoutMode')
       removeLocalKey('historyMenu')
-      removeLocalKey('primaryColor')
       SysRouteMenuStore.IsAddAsyncRouter = false
       router.push({ name: 'LoginIndex' })
     }

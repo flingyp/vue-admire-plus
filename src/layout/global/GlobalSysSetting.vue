@@ -136,7 +136,7 @@
 
   // 第三部分：主题色模式相关
   const changePrimaryColor = (color: string) => {
-    SysStore.setThemeColor(color)
+    SysStore.SysConfig.themeColor = color
   }
 
   // 第四部分：界面功能
@@ -159,10 +159,10 @@
   }
 
   // 系统相关内容初始化
-  onMounted(() => {
-    // 主题色初始化
-    SysStore.setThemeColor(SysStore.SysConfig.themeColor)
-  })
+  // onMounted(() => {
+  //   // 主题色初始化
+  //   SysStore.setThemeColor(SysStore.SysConfig.themeColor)
+  // })
 </script>
 
 <style>
