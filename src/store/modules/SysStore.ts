@@ -41,7 +41,7 @@ const ThemeColorArray = [
 interface ISysStoreState {
   SysBaseConfig: SysBasicConfig.SysBaseConfig
   SysConfig: SysConfig.Config
-  SysUserInfo: IUserInfo | {}
+  SysUserInfo: IUserInfo
 }
 
 export const UseSysStore = defineStore('SysStore', {
@@ -92,7 +92,9 @@ export const UseSysStore = defineStore('SysStore', {
      */
     async setSysUserInfo() {
       const UserInfo = await userInfoApi()
-      this.SysUserInfo = UserInfo
+      if (UserInfo) {
+        this.SysUserInfo = UserInfo
+      }
     },
     /**
      * 设置主题模式

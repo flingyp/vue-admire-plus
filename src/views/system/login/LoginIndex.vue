@@ -109,9 +109,11 @@
       if (!valid) return
       // 校验成功 进行登录
       const UserToken = await userLoginApi(LoginModel.username, LoginModel.password)
-      setLocalKey('token', UserToken)
-      // 登录后台系统
-      router.push({ name: 'AboutIndex' })
+      if (UserToken) {
+        setLocalKey('token', UserToken)
+        // 登录后台系统
+        router.push({ name: 'AboutIndex' })
+      }
     })
   }
 </script>

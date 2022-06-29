@@ -16,10 +16,16 @@ export default [
           data: 'VPlus-Admin'
         }
       }
+      if (body.username === 'user' && body.password === 'user') {
+        return {
+          code: 200,
+          msg: '操作成功',
+          data: 'VPlus-User'
+        }
+      }
       return {
         code: 500,
-        msg: '操作失败',
-        data: ''
+        msg: '用户名或密码错误'
       }
     }
   },
@@ -38,6 +44,20 @@ export default [
             birthday: MockRandom.date(),
             roles: ['admin'],
             permissions: ['sys:root:*']
+          }
+        }
+      }
+      if (headers.token === 'VPlus-User') {
+        return {
+          code: 200,
+          msg: '操作成功',
+          data: {
+            id: MockRandom.id(),
+            username: 'user',
+            nickname: '普通用户',
+            birthday: MockRandom.date(),
+            roles: ['user'],
+            permissions: ['sys:user:*']
           }
         }
       }

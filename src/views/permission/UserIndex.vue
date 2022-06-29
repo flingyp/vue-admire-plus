@@ -1,5 +1,5 @@
 <template>
-  <div>用户权限测试</div>
+  <div>普通用户权限页面</div>
 </template>
 
 <script setup lang="ts"></script>

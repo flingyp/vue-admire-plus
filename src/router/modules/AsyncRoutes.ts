@@ -6,8 +6,7 @@ const AsyncRouters: SysRouterMenu.VPlusRoute[] = [
     name: 'Permission',
     component: 'Layout',
     meta: {
-      label: '权限测试',
-      permissions: ['sys:root:*'],
+      label: '前端权限测试',
       icon: 'arcticons:permissionchecker'
     },
     children: [
@@ -16,7 +15,8 @@ const AsyncRouters: SysRouterMenu.VPlusRoute[] = [
         name: 'Permission-User',
         component: '@/views/permission/UserIndex.vue',
         meta: {
-          label: '用户测试页面'
+          label: '普通用户权限页面',
+          permissions: ['sys:user:*']
         }
       },
       {
@@ -24,8 +24,16 @@ const AsyncRouters: SysRouterMenu.VPlusRoute[] = [
         name: 'Permission-Role',
         component: '@/views/permission/RoleIndex.vue',
         meta: {
-          label: '角色测试页面',
+          label: '超级管理员权限页面',
           permissions: ['sys:root:*']
+        }
+      },
+      {
+        path: 'common',
+        name: 'Permission-Common',
+        component: '@/views/permission/CommonIndex.vue',
+        meta: {
+          label: '均可访问权限页面'
         }
       }
     ]

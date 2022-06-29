@@ -1,7 +1,7 @@
 <template>
   <section class="h-full flex items-center justify-between">
     <div class="h-full flex items-center justify-between">
-      <GlobalLeftMenuCollapse></GlobalLeftMenuCollapse>
+      <GlobalLeftMenuCollapse class="mr-[8px]"></GlobalLeftMenuCollapse>
       <GlobalBreadCrumb></GlobalBreadCrumb>
     </div>
     <div class="h-full">

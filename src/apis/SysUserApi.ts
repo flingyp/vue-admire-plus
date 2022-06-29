@@ -9,7 +9,7 @@ import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
  * @returns
  */
 export const userLoginApi = async (username: string, password: string) => {
-  const response = await $http.YPlusRequest<SysConfig.HttpResponse<string>>({
+  const response = await $http.YPlusRequest<SysConfig.HttpResponse<string | undefined>>({
     url: '/user/login',
     method: 'post',
     isLoading: true,
@@ -22,23 +22,23 @@ export const userLoginApi = async (username: string, password: string) => {
   if (response.code === 200) {
     return response.data
   }
-  return response.msg
+  return undefined
 }
 
 export interface IUserInfo {
-  id: number
-  username: string
-  nickname: string
-  birthday: string
-  roles: Array<string>
-  permissions: Array<string>
+  id?: number
+  username?: string
+  nickname?: string
+  birthday?: string
+  roles?: Array<string>
+  permissions?: Array<string>
 }
 
 /**
  * 用户信息
  */
 export const userInfoApi = async () => {
-  const response = await $http.YPlusRequest<SysConfig.HttpResponse<IUserInfo>>({
+  const response = await $http.YPlusRequest<SysConfig.HttpResponse<IUserInfo | undefined>>({
     url: '/user/info',
     method: 'post',
     headers: {
@@ -48,5 +48,5 @@ export const userInfoApi = async () => {
   if (response.code === 200) {
     return response.data
   }
-  return response.msg
+  return undefined
 }

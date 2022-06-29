@@ -8,7 +8,7 @@
 
 import { YPlusRequestParams } from 'types/ExtendAxiosInstance'
 
-import { ElLoading } from 'element-plus'
+import { ElLoading, ElMessage } from 'element-plus'
 
 import AxiosRequest from './CreateRequestInstance'
 
@@ -38,6 +38,13 @@ const DefaultRequestInstance = () => {
    * 添加自定义响应拦截器
    */
   Request.addResponseInterceptors(response => {
+    if (response.data.code !== 200) {
+      ElMessage({
+        message: response.data.msg,
+        grouping: true,
+        type: 'error'
+      })
+    }
     return response.data
   })
 
