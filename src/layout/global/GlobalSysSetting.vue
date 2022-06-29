@@ -147,8 +147,8 @@
     SysStore.SysConfig.customHeaderHeight = value
   }
   const CustomTagHeight = ref(SysStore.SysConfig.customTagHeight)
-  const MixTagHeight = ref(35)
-  const MaxTagHeight = ref(55)
+  const MixTagHeight = ref(40)
+  const MaxTagHeight = ref(60)
   const handleTagHeightChange = (value: number) => {
     SysStore.SysConfig.customTagHeight = value
   }

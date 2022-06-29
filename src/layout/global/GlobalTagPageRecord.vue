@@ -75,7 +75,6 @@
 <style scoped>
   /* // 滚动条宽度 */
   div::-webkit-scrollbar {
-    width: 6px;
     height: 5px;
   }
   /* // 滚动条轨道 */
@@ -85,10 +84,10 @@
   } */
   /* // 小滑块 */
   div::-webkit-scrollbar-thumb {
-    background: var(--el-color-primary-light-7);
+    background: var(--el-color-primary-light-9);
     border-radius: 10px;
   }
   div::-webkit-scrollbar-thumb:hover {
-    background: var(--el-color-primary-light-3);
+    background: var(--el-color-primary);
   }
 </style>

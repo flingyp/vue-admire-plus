@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { SysBaseConfig } from '../../SysBasicConfig'
 
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
-import { CreateMixColor, TransformToDarken } from '@/utils/common/ColorHandleUtil'
+import { CreateMixColor } from '@/utils/common/ColorHandleUtil'
 
 import { IUserInfo, userInfoApi } from '@/apis/SysUserApi'
 
@@ -58,7 +58,7 @@ export const UseSysStore = defineStore('SysStore', {
         primaryColorGather: undefined,
         isNeedReload: false,
         customHeaderHeight: 60,
-        customTagHeight: 45
+        customTagHeight: 50
       },
       SysUserInfo: {}
     }
@@ -141,9 +141,11 @@ export const UseSysStore = defineStore('SysStore', {
         } else {
           BasicColor = '#000000'
         }
-        const Mix = CreateMixColor(BasicColor, ColorGather[ColorPrefix], Number(PercentValue[2]))
         // @ts-ignore
-        ColorGather[key] = this.SysConfig.themeMode === 'light' ? Mix : TransformToDarken(Mix, 3)
+        ColorGather[key] =
+          this.SysConfig.themeMode === 'light'
+            ? CreateMixColor(BasicColor, ColorGather[ColorPrefix], Number(PercentValue[2]), 1)
+            : CreateMixColor(BasicColor, ColorGather[ColorPrefix], Number(PercentValue[2]), 2)
 
         // 修改系统中CSS当中的变量
         // @ts-ignore
