@@ -1,9 +1,11 @@
-import $http from '@/utils/https'
+import { SysRouterMenu } from 'types/SysRouterMenu'
 
 import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
+import $http from '@/utils/https'
+
 /**
- * 用户登录
+ * 获取用户登录
  * @param username
  * @param password
  * @returns
@@ -35,11 +37,30 @@ export interface IUserInfo {
 }
 
 /**
- * 用户信息
+ * 获取用户信息
+ * @returns
  */
 export const userInfoApi = async () => {
   const response = await $http.YPlusRequest<SysConfig.HttpResponse<IUserInfo | undefined>>({
     url: '/user/info',
+    method: 'post',
+    headers: {
+      token: getLocalKey('token') as string
+    }
+  })
+  if (response.code === 200) {
+    return response.data
+  }
+  return undefined
+}
+
+/**
+ * 获取用户异步路由表
+ * @returns
+ */
+export const userAsyncRouters = async () => {
+  const response = await $http.YPlusRequest<SysConfig.HttpResponse<SysRouterMenu.VPlusRoute[] | undefined>>({
+    url: '/user/asyncRouters',
     method: 'post',
     headers: {
       token: getLocalKey('token') as string

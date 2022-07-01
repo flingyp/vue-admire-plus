@@ -5,7 +5,7 @@ import { SysBaseConfig } from '../../SysBasicConfig'
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 import { CreateMixColor } from '@/utils/common/ColorHandleUtil'
 
-import { IUserInfo, userInfoApi } from '@/apis/SysUserApi'
+import { IUserInfo, userInfoApi, userAsyncRouters } from '@/apis/SysUserApi'
 
 import { useThemeMode } from '@/hooks/UseThemeMode'
 
@@ -95,6 +95,16 @@ export const UseSysStore = defineStore('SysStore', {
       if (UserInfo) {
         this.SysUserInfo = UserInfo
       }
+    },
+    /**
+     * 获取用户异步路由表（后端控制权限路由）
+     */
+    async getUserAsyncRouterBasicServe() {
+      const AsyncRouters = await userAsyncRouters()
+      if (AsyncRouters) {
+        return AsyncRouters
+      }
+      return []
     },
     /**
      * 设置主题模式

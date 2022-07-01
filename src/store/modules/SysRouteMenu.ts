@@ -77,7 +77,6 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
         CurrentMenuIndex = this.AllHistoryMenuRecord.findIndex((key: string) => {
           return key === value
         })
-        console.log(CurrentMenuIndex)
         this.AllHistoryMenuRecord.splice(CurrentMenuIndex, 1)
         setLocalKey('historyMenu', this.AllHistoryMenuRecord.toString())
       }

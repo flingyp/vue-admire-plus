@@ -7,6 +7,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 import lodash from 'lodash'
 
+import { SysRouterMenu } from 'types/SysRouterMenu'
 import { UseSysStore } from '@/store/modules/SysStore'
 import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 
@@ -35,13 +36,30 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
   await SysStore.setSysUserInfo()
   // 获取用户权限
   const Permissions = SysStore.SysUserInfo.permissions
-  // 2. 筛选异步路由
-  const VPlusAsyncRouters = lodash.cloneDeep(AsyncRouters)
+
+  // 判断当前项目配置由什么控制路由权限
+  const handleSysPermission = SysStore.SysBaseConfig.handleSysPermission as SysBasicConfig.SysHandlePermission
+
+  // 2. 系统异步路由
+  let VPlusAsyncRouters: SysRouterMenu.VPlusRoute[] = []
+  if (handleSysPermission === 'STATIC_PERMISSION') {
+    // 前端静态异步路由表
+    VPlusAsyncRouters = lodash.cloneDeep(AsyncRouters)
+  } else if (handleSysPermission === 'DYNAMIC_PERMISSION') {
+    VPlusAsyncRouters = await SysStore.getUserAsyncRouterBasicServe()
+  } else {
+    // 前端静态异步路由表
+    VPlusAsyncRouters = lodash.cloneDeep(AsyncRouters)
+  }
+
   // 过滤好的VPlus异步路由
   const FilterSuccessVPlusAsyncRouters = filterAsyncVPlusRoute(VPlusAsyncRouters, Permissions)
-  // 转换为VueRouter的异步路由
+
+  // 将所有路由表 转换为 VueRouter 路由表 RouteRecordRaw[]
   const TransformToAsyncRouters = transformVPlusRouteToRouteRecordRaw(FilterSuccessVPlusAsyncRouters)
+
   const TransformToConstantRouters = transformVPlusRouteToRouteRecordRaw(ConstantRoutes)
+
   // 3. 挂载路由
   TransformToAsyncRouters.forEach(route => {
     mountRoute(route, RouterInstance)
