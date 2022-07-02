@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import App from './App.vue'
 
 import { initRouter } from '@/router'
@@ -14,7 +15,9 @@ const initApplication = async () => {
   const app = createApp(App)
 
   // ElementPlus
-  app.use(ElementPlus)
+  app.use(ElementPlus, {
+    locale: zhCn
+  })
 
   // 初始化路由
   initRouter(app)
