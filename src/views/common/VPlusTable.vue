@@ -6,6 +6,7 @@
     v-model:sectionContent="TableSectionContent"
     v-model:defaultPage="CurrentPage"
     v-model:defaultPageSize="CurrentPageSize"
+    :is-loading="TableIsLoading"
   >
     <template #status="{ content }">
       <el-tag v-if="content.status === 1">正常</el-tag>
@@ -18,36 +19,33 @@
     </template>
 
     <template #table-searchs>
-      <section class="flex items-center">
-        <section class="flex items-center mr-[20px]">
-          <label class="w-[100px] text-right pr-[10px]">用户名</label>
-          <el-input placeholder="请输入角色名称" />
-        </section>
-        <section class="flex items-center mr-[20px]">
-          <label class="w-[100px] text-right pr-[10px]">日期</label>
-          <el-input placeholder="请输入日期" />
-        </section>
-        <section class="flex items-center mr-[20px]">
-          <label class="w-[100px] text-right pr-[10px]">家庭住址</label>
-          <el-input placeholder="请输入家庭住址" />
-        </section>
-        <section class="flex items-center mr-[20px]">
-          <el-button type="primary">搜索</el-button>
-        </section>
-      </section>
+      <el-form :inline="true" :model="SearchForm" class="demo-form-inline">
+        <el-form-item label="日期">
+          <el-input v-model="SearchForm.date" placeholder="Please input date" />
+        </el-form-item>
+        <el-form-item label="用户名">
+          <el-input v-model="SearchForm.name" placeholder="Please input name" />
+        </el-form-item>
+        <el-form-item label="家庭地址">
+          <el-input v-model="SearchForm.address" placeholder="Please input address" />
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit">查询</el-button>
+        </el-form-item>
+      </el-form>
     </template>
 
     <template #table-buttons>
-      <el-button type="primary" size="small">新增</el-button>
-      <el-button type="success" size="small">批量删除</el-button>
-      <el-button type="info" size="small">导入</el-button>
-      <el-button type="warning" size="small">导出</el-button>
+      <el-button type="primary">新增</el-button>
+      <el-button type="success">批量删除</el-button>
+      <el-button type="info">导入</el-button>
+      <el-button type="warning">导出</el-button>
     </template>
   </VPlusTableCom>
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { reactive, ref } from 'vue'
   import { Action, ElMessageBox } from 'element-plus'
   import VPlusTableCom from '@/components/VPlusTableCom.vue'
   import { getUserTableApi, IUser } from '@/apis/SysTableDemoApi'
@@ -81,7 +79,7 @@
     }
   ]
 
-  const TableContentUser = (await getUserTableApi()) || []
+  const TableContentUser = ref((await getUserTableApi()) || [])
 
   // 表格多选（勾选了的数据）
   const TableSectionContent: IUser[] = []
@@ -108,7 +106,22 @@
   // 当前页数
   const CurrentPage = ref(1)
   // 显示条数大小
-  const CurrentPageSize = ref(15)
+  const CurrentPageSize = ref(10)
+
+  const SearchForm = reactive({
+    date: '',
+    name: '',
+    address: '',
+    status: 0
+  })
+
+  const TableIsLoading = ref(false)
+
+  const onSubmit = async () => {
+    TableIsLoading.value = true
+    // eslint-disable-next-line no-return-assign
+    setTimeout(async () => (TableIsLoading.value = false), 2000)
+  }
 </script>
 
 <style scoped></style>

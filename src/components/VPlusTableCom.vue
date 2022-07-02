@@ -1,16 +1,15 @@
 <template>
   <div>
     <!-- 搜索模块 -->
-    <section class="mb-[10px]">
-      <slot name="table-searchs">搜索模块</slot>
-    </section>
+    <slot name="table-searchs"></slot>
     <!-- 相关按钮模块 -->
-    <section>
-      <slot name="table-buttons">相关按钮模块</slot>
-    </section>
+    <slot name="table-buttons"></slot>
+    <!-- 表格模板 -->
     <el-table
+      v-loading="VPlusTableProps.isLoading"
+      element-loading-text="加载中..."
       :height="VPlusTableProps.tableHeight"
-      :style="{ width: tableWidth, marginTop: '10px' }"
+      :style="{ width: tableWidth, marginTop: '15px' }"
       :data="ShowTableContentData"
       :stripe="VPlusTableProps.isStripe"
       :border="VPlusTableProps.isBorder"
@@ -30,6 +29,7 @@
         </template>
       </el-table-column>
     </el-table>
+    <!-- 分页模块 -->
     <el-pagination
       style="margin-top: 20px"
       background
@@ -59,6 +59,7 @@
   interface IVPlusTableProps {
     isStripe?: boolean
     isBorder?: boolean
+    isLoading?: boolean
     isNeedCheckbox?: boolean
     tableHeader: VPlusTableHeaderData[]
     tableContent?: unknown[]
@@ -74,6 +75,7 @@
   const VPlusTableProps = withDefaults(defineProps<IVPlusTableProps>(), {
     isStripe: true,
     isBorder: true,
+    isLoading: false,
     isNeedCheckbox: false,
     tableWidth: '100%',
     tableHeight: undefined,
@@ -93,8 +95,6 @@
 
   const TableHeaderData = ref(VPlusTableProps.tableHeader || [])
   const ShowTableContentData = ref<unknown[]>([])
-  // 深拷贝
-  const _CloneDeepTableContentData = lodash.cloneDeep(VPlusTableProps.tableContent || [])
 
   // 控制表格多选
   const handleSelectionChange = (value: unknown[]) => {
@@ -117,6 +117,7 @@
   }
   // 分页操作
   const showTableContent = (page: number, size: number) => {
+    const _CloneDeepTableContentData = lodash.cloneDeep(VPlusTableProps.tableContent || [])
     let ShowArray: unknown[] = []
     if (page === 1) {
       ShowArray = _CloneDeepTableContentData?.slice(0, size)

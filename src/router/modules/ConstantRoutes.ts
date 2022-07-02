@@ -142,7 +142,7 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
         name: 'Table',
         component: '@/views/common/VPlusTable.vue',
         meta: {
-          label: '二次封装表格',
+          label: '常用模块-表格',
           icon: 'bx:table'
         }
       }
