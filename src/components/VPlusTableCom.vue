@@ -1,8 +1,16 @@
 <template>
   <div>
+    <!-- 搜索模块 -->
+    <section class="mb-[10px]">
+      <slot name="table-searchs">搜索模块</slot>
+    </section>
+    <!-- 相关按钮模块 -->
+    <section>
+      <slot name="table-buttons">相关按钮模块</slot>
+    </section>
     <el-table
       :height="VPlusTableProps.tableHeight"
-      :style="{ width: tableWidth }"
+      :style="{ width: tableWidth, marginTop: '10px' }"
       :data="ShowTableContentData"
       :stripe="VPlusTableProps.isStripe"
       :border="VPlusTableProps.isBorder"
@@ -28,8 +36,8 @@
       v-model:currentPage="CurrentPage"
       v-model:page-size="CurrentPageSize"
       layout="->, total, sizes, prev, pager, next, jumper"
-      :page-sizes="[5, 10, 15, 20]"
-      :total="TableContentData.length"
+      :page-sizes="VPlusTableProps.defaultPageSizes"
+      :total="VPlusTableProps.tableContent.length"
       @current-change="changeCurrentPage"
       @size-change="changeCurrentPageSize"
     ></el-pagination>
@@ -59,6 +67,8 @@
     sectionContent?: unknown[]
     defaultPage?: number
     defaultPageSize?: number
+    defaultPageSizes?: number[]
+    handlePagination?: 'web' | 'serve'
   }
 
   const VPlusTableProps = withDefaults(defineProps<IVPlusTableProps>(), {
@@ -68,20 +78,23 @@
     tableWidth: '100%',
     tableHeight: undefined,
     defaultPage: 1,
-    defaultPageSize: 10
+    defaultPageSize: 10,
+    defaultPageSizes: () => [5, 10, 15, 20, 25],
+    handlePagination: 'web'
   })
 
   interface IVPlusTableEmits {
     (e: 'update:sectionContent', value: unknown[]): void
+    (e: 'update:defaultPage', value: number): void
+    (e: 'update:defaultPageSize', value: number): void
   }
 
   const VPlusTableEmits = defineEmits<IVPlusTableEmits>()
 
   const TableHeaderData = ref(VPlusTableProps.tableHeader || [])
-  const TableContentData = ref(VPlusTableProps.tableContent || [])
   const ShowTableContentData = ref<unknown[]>([])
   // 深拷贝
-  const _CloneDeepTableContentData = lodash.cloneDeep(TableContentData.value)
+  const _CloneDeepTableContentData = lodash.cloneDeep(VPlusTableProps.tableContent || [])
 
   // 控制表格多选
   const handleSelectionChange = (value: unknown[]) => {
@@ -95,10 +108,12 @@
   // 改变页数
   const changeCurrentPage = (value: number) => {
     CurrentPage.value = value
+    VPlusTableEmits('update:defaultPage', value)
   }
   // 改变页数大小
   const changeCurrentPageSize = (value: any) => {
     CurrentPageSize.value = value
+    VPlusTableEmits('update:defaultPageSize', value)
   }
   // 分页操作
   const showTableContent = (page: number, size: number) => {
@@ -113,7 +128,11 @@
   }
 
   watchEffect(() => {
-    ShowTableContentData.value = showTableContent(CurrentPage.value, CurrentPageSize.value)
+    if (VPlusTableProps.handlePagination === 'web') {
+      ShowTableContentData.value = showTableContent(CurrentPage.value, CurrentPageSize.value)
+    } else {
+      ShowTableContentData.value = VPlusTableProps.tableContent || []
+    }
   })
 </script>
 
