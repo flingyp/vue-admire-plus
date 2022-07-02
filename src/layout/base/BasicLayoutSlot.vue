@@ -96,7 +96,7 @@
     padding: 0;
     max-width: 100vw;
     overflow-x: hidden;
-    background-color: var(--el-bg-color-page);
+    /* background-color: var(--el-bg-color-page); */
   }
   .el-header {
     padding-left: 0;

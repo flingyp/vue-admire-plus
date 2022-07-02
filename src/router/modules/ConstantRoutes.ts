@@ -136,6 +136,15 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
           label: '404页面',
           icon: 'tabler:error-404'
         }
+      },
+      {
+        path: 'table',
+        name: 'Table',
+        component: '@/views/common/VPlusTable.vue',
+        meta: {
+          label: '二次封装表格',
+          icon: 'bx:table'
+        }
       }
     ]
   },
