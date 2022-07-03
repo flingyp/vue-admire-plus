@@ -1,7 +1,7 @@
 {
-  "name": "vue-plus-admin",
+  "name": "vue-admire-plus",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite --mode dev",
     "build": "vite build",

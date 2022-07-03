@@ -29,7 +29,7 @@ Mock Server 内置模拟数据方案
 
 ## 预览
 
-- [Vue Admire Plus](https://VAdmire.yyblog.top/)
+- [Vue Admire Plus](https://VAdmire.top)
 
 ## 文档
 
@@ -41,7 +41,7 @@ Mock Server 内置模拟数据方案
 
 - 获取项目代码
 
-`git clone https://github.com/flingyp/vue-plus-admin.git`
+`git clone https://github.com/flingyp/vue-admire-plus.git`
 
 - 安装项目依赖
 
