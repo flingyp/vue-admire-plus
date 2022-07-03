@@ -1,6 +1,6 @@
 import type { SysRouterMenu } from 'types/SysRouterMenu'
 
-const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
+const ConstantRoutes: SysRouterMenu.VAdmireRoute[] = [
   {
     path: '/',
     name: 'Index',
@@ -121,7 +121,7 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
       {
         path: 'table',
         name: 'Table',
-        component: '@/views/common/VPlusTable.vue',
+        component: '@/views/common/VAdmireTable.vue',
         meta: {
           label: '常用模块-表格',
           icon: 'bx:table'
@@ -190,7 +190,7 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
 
 export default ConstantRoutes
 
-export const Redirect404Router: SysRouterMenu.VPlusRoute = {
+export const Redirect404Router: SysRouterMenu.VAdmireRoute = {
   path: '/:catchAll(.*)',
   name: '404',
   redirect: '/404',

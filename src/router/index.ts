@@ -6,8 +6,8 @@ import { App } from 'vue'
 // 路由守卫处理函数
 import routeMenuHandleProcess from './RouterBeforeEachHandle'
 
-// 转换 VPlusRoutes 转换为 RouteRecordRaw[] 工具函数
-import transformVPlusToVRouterRecordRaw from './utils/TransformVPlusRoute'
+// 转换 VAdmireRoutes 转换为 RouteRecordRaw[] 工具函数
+import transformVAdmireToVRouterRecordRaw from './utils/TransformVAdmireRoute'
 
 // 常量路由
 import ConstantRoutes from './modules/ConstantRoutes'
@@ -19,7 +19,7 @@ NProgress.configure({ easing: 'ease', speed: 500 })
  */
 const routerInstance = createRouter({
   history: createWebHashHistory(),
-  routes: transformVPlusToVRouterRecordRaw(ConstantRoutes)
+  routes: transformVAdmireToVRouterRecordRaw(ConstantRoutes)
 })
 
 /**

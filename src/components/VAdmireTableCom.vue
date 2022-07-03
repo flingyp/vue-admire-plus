@@ -6,16 +6,16 @@
     <slot name="table-buttons"></slot>
     <!-- 表格模板 -->
     <el-table
-      v-loading="VPlusTableProps.isLoading"
+      v-loading="VAdmireTableProps.isLoading"
       element-loading-text="加载中..."
-      :height="VPlusTableProps.tableHeight"
+      :height="VAdmireTableProps.tableHeight"
       :style="{ width: tableWidth, marginTop: '15px' }"
       :data="ShowTableContentData"
-      :stripe="VPlusTableProps.isStripe"
-      :border="VPlusTableProps.isBorder"
+      :stripe="VAdmireTableProps.isStripe"
+      :border="VAdmireTableProps.isBorder"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column v-if="VPlusTableProps.isNeedCheckbox" type="selection" />
+      <el-table-column v-if="VAdmireTableProps.isNeedCheckbox" type="selection" />
       <el-table-column
         v-for="(item, index) in TableHeaderData"
         :key="index"
@@ -36,8 +36,8 @@
       v-model:currentPage="CurrentPage"
       v-model:page-size="CurrentPageSize"
       layout="->, total, sizes, prev, pager, next, jumper"
-      :page-sizes="VPlusTableProps.defaultPageSizes"
-      :total="VPlusTableProps.tableContent.length"
+      :page-sizes="VAdmireTableProps.defaultPageSizes"
+      :total="VAdmireTableProps.tableContent.length"
       @current-change="changeCurrentPage"
       @size-change="changeCurrentPageSize"
     ></el-pagination>
@@ -48,7 +48,7 @@
   import { ref, watchEffect } from 'vue'
   import lodash from 'lodash'
 
-  interface VPlusTableHeaderData {
+  interface VAdmireTableHeaderData {
     columnTitle: string
     columnProp: string
     columnWidth?: number
@@ -56,12 +56,12 @@
     columnFixed?: string
   }
 
-  interface IVPlusTableProps {
+  interface IVAdmireTableProps {
     isStripe?: boolean
     isBorder?: boolean
     isLoading?: boolean
     isNeedCheckbox?: boolean
-    tableHeader: VPlusTableHeaderData[]
+    tableHeader: VAdmireTableHeaderData[]
     tableContent?: unknown[]
     tableWidth?: string
     tableHeight?: string | number | undefined
@@ -72,7 +72,7 @@
     handlePagination?: 'web' | 'serve'
   }
 
-  const VPlusTableProps = withDefaults(defineProps<IVPlusTableProps>(), {
+  const VAdmireTableProps = withDefaults(defineProps<IVAdmireTableProps>(), {
     isStripe: true,
     isBorder: true,
     isLoading: false,
@@ -85,39 +85,39 @@
     handlePagination: 'web'
   })
 
-  interface IVPlusTableEmits {
+  interface IVAdmireTableEmits {
     (e: 'update:sectionContent', value: unknown[]): void
     (e: 'update:defaultPage', value: number): void
     (e: 'update:defaultPageSize', value: number): void
   }
 
-  const VPlusTableEmits = defineEmits<IVPlusTableEmits>()
+  const VAdmireTableEmits = defineEmits<IVAdmireTableEmits>()
 
-  const TableHeaderData = ref(VPlusTableProps.tableHeader || [])
+  const TableHeaderData = ref(VAdmireTableProps.tableHeader || [])
   const ShowTableContentData = ref<unknown[]>([])
 
   // 控制表格多选
   const handleSelectionChange = (value: unknown[]) => {
-    VPlusTableEmits('update:sectionContent', value)
+    VAdmireTableEmits('update:sectionContent', value)
   }
 
   // 当前页数
-  const CurrentPage = ref(VPlusTableProps.defaultPage)
+  const CurrentPage = ref(VAdmireTableProps.defaultPage)
   // 显示条数大小
-  const CurrentPageSize = ref(VPlusTableProps.defaultPageSize)
+  const CurrentPageSize = ref(VAdmireTableProps.defaultPageSize)
   // 改变页数
   const changeCurrentPage = (value: number) => {
     CurrentPage.value = value
-    VPlusTableEmits('update:defaultPage', value)
+    VAdmireTableEmits('update:defaultPage', value)
   }
   // 改变页数大小
   const changeCurrentPageSize = (value: any) => {
     CurrentPageSize.value = value
-    VPlusTableEmits('update:defaultPageSize', value)
+    VAdmireTableEmits('update:defaultPageSize', value)
   }
   // 分页操作
   const showTableContent = (page: number, size: number) => {
-    const _CloneDeepTableContentData = lodash.cloneDeep(VPlusTableProps.tableContent || [])
+    const _CloneDeepTableContentData = lodash.cloneDeep(VAdmireTableProps.tableContent || [])
     let ShowArray: unknown[] = []
     if (page === 1) {
       ShowArray = _CloneDeepTableContentData?.slice(0, size)
@@ -129,10 +129,10 @@
   }
 
   watchEffect(() => {
-    if (VPlusTableProps.handlePagination === 'web') {
+    if (VAdmireTableProps.handlePagination === 'web') {
       ShowTableContentData.value = showTableContent(CurrentPage.value, CurrentPageSize.value)
     } else {
-      ShowTableContentData.value = VPlusTableProps.tableContent || []
+      ShowTableContentData.value = VAdmireTableProps.tableContent || []
     }
   })
 </script>

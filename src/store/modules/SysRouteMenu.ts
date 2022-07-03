@@ -7,9 +7,9 @@ interface ISysRouteMenuStoreState {
   IsAddAsyncRouter: boolean // 是否挂载了异步路由
   IsMounted404Router: boolean // 是否挂载了404路由
   IsDeleteCurrentRouteMenu: boolean // 是否是删除当前路由菜单
-  ConstantVPlusRouters: SysRouterMenu.VPlusRoute[] // 所有常量路由
-  AsyncVPlusRouters: SysRouterMenu.VPlusRoute[] // 所有异步路由
-  MountedAsyncVPlusRouters: SysRouterMenu.VPlusRoute[] // 所有挂载成功的异步路由
+  ConstantVAdmireRouters: SysRouterMenu.VAdmireRoute[] // 所有常量路由
+  AsyncVAdmireRouters: SysRouterMenu.VAdmireRoute[] // 所有异步路由
+  MountedAsyncVAdmireRouters: SysRouterMenu.VAdmireRoute[] // 所有挂载成功的异步路由
   AllRouterRecord: RouteRecordRaw[] // 所有VueRouter路由
   AllConstantRouterRecord: RouteRecordRaw[] // 所有VueRouter常量路由
   AllAsyncRouterRecord: RouteRecordRaw[] // 所有VueRouter异步路由
@@ -24,9 +24,9 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
       IsAddAsyncRouter: false,
       IsMounted404Router: false,
       IsDeleteCurrentRouteMenu: false,
-      ConstantVPlusRouters: [],
-      AsyncVPlusRouters: [],
-      MountedAsyncVPlusRouters: [],
+      ConstantVAdmireRouters: [],
+      AsyncVAdmireRouters: [],
+      MountedAsyncVAdmireRouters: [],
       AllRouterRecord: [],
       AllConstantRouterRecord: [],
       AllAsyncRouterRecord: [],

@@ -4,12 +4,16 @@
     class="flex justify-center items-center w-full h-[60px]"
   >
     <img :src="getImageUrl('SysLogo.png')" :alt="SysTitle" class="w-[2rem]" />
-    <span v-show="!SysStore.SysConfig.leftMenuIsCollapsed" class="text-[0.9rem] ml-2 font-sans">{{ SysTitle }}</span>
+    <span
+      v-show="!SysStore.SysConfig.leftMenuIsCollapsed"
+      class="text-[1.1rem] ml-2 font-bold text-[var(--el-color-primary)]"
+      >{{ SysTitle }}</span
+    >
   </div>
 
   <div v-else class="flex items-center h-full">
     <img :src="getImageUrl('SysLogo.png')" :alt="SysTitle" class="w-[2rem]" />
-    <span class="text-[0.9rem] ml-2 font-sans">{{ SysTitle }}</span>
+    <span class="text-[1.1rem] ml-2 font-bold text-[var(--el-color-primary)]">{{ SysTitle }}</span>
   </div>
 </template>
 

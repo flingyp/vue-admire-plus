@@ -13,14 +13,14 @@ export default [
         return {
           code: 200,
           msg: '操作成功',
-          data: 'VPlus-Admin'
+          data: 'VAdmire-Admin'
         }
       }
       if (body.username === 'user' && body.password === 'user') {
         return {
           code: 200,
           msg: '操作成功',
-          data: 'VPlus-User'
+          data: 'VAdmire-User'
         }
       }
       return {
@@ -33,7 +33,7 @@ export default [
     url: '/mock/user/info',
     method: 'post',
     response: ({ headers }: any) => {
-      if (headers.token === 'VPlus-Admin') {
+      if (headers.token === 'VAdmire-Admin') {
         return {
           code: 200,
           msg: '操作成功',
@@ -47,7 +47,7 @@ export default [
           }
         }
       }
-      if (headers.token === 'VPlus-User') {
+      if (headers.token === 'VAdmire-User') {
         return {
           code: 200,
           msg: '操作成功',
@@ -72,7 +72,7 @@ export default [
     url: '/mock/user/asyncRouters',
     method: 'post',
     response: ({ headers }: any) => {
-      if (headers.token === 'VPlus-Admin') {
+      if (headers.token === 'VAdmire-Admin') {
         return {
           code: 200,
           msg: '操作成功',
@@ -115,7 +115,7 @@ export default [
           ]
         }
       }
-      if (headers.token === 'VPlus-User') {
+      if (headers.token === 'VAdmire-User') {
         return {
           code: 200,
           msg: '操作成功',

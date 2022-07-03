@@ -1,6 +1,6 @@
 import type { SysRouterMenu } from 'types/SysRouterMenu'
 
-const AsyncRouters: SysRouterMenu.VPlusRoute[] = [
+const AsyncRouters: SysRouterMenu.VAdmireRoute[] = [
   {
     path: '/permission',
     name: 'Permission',

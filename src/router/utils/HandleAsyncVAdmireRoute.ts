@@ -3,15 +3,18 @@ import { Router, RouteRecordRaw } from 'vue-router'
 
 /**
  * 通过权限过滤路由的方法
- * @param VPlusRouters
+ * @param VAdmireRouters
  * @param UserPermissions
  * @returns
  */
-const filter = (VPlusRouters: SysRouterMenu.VPlusRoute[], UserPermissions: string[]): SysRouterMenu.VPlusRoute[] => {
-  const FilterVPlusRouters: SysRouterMenu.VPlusRoute[] = []
-  VPlusRouters.forEach(VPlusRouter => {
-    if (VPlusRouter.children && VPlusRouter.children.length > 0) {
-      VPlusRouter.children = filter(VPlusRouter.children, UserPermissions)
+const filter = (
+  VAdmireRouters: SysRouterMenu.VAdmireRoute[],
+  UserPermissions: string[]
+): SysRouterMenu.VAdmireRoute[] => {
+  const FilterVAdmireRouters: SysRouterMenu.VAdmireRoute[] = []
+  VAdmireRouters.forEach(VAdmireRouter => {
+    if (VAdmireRouter.children && VAdmireRouter.children.length > 0) {
+      VAdmireRouter.children = filter(VAdmireRouter.children, UserPermissions)
     }
     /**
      * 用户是否有权限根据 *:*:* 结构去判断
@@ -20,7 +23,7 @@ const filter = (VPlusRouters: SysRouterMenu.VPlusRoute[], UserPermissions: strin
      */
     // 判断此路由是否有权限
     let IsHavePermission = false
-    const RouterPermissions = VPlusRouter.meta?.permissions || []
+    const RouterPermissions = VAdmireRouter.meta?.permissions || []
     if (RouterPermissions.length === 0) {
       // 如果没有定义路由的权限， 默认可见
       IsHavePermission = true
@@ -41,24 +44,24 @@ const filter = (VPlusRouters: SysRouterMenu.VPlusRoute[], UserPermissions: strin
       })
     }
     if (IsHavePermission) {
-      FilterVPlusRouters.push(VPlusRouter)
+      FilterVAdmireRouters.push(VAdmireRouter)
     }
   })
-  return FilterVPlusRouters
+  return FilterVAdmireRouters
 }
 
 /**
- * 根据权限过滤VPlus异步路由
- * @param VPlusAsyncRouters
+ * 根据权限过滤VAdmire异步路由
+ * @param VAdmireAsyncRouters
  * @param Permissions
  */
-export const filterAsyncVPlusRoute = (
-  VPlusAsyncRouters: SysRouterMenu.VPlusRoute[],
+export const filterAsyncVAdmireRoute = (
+  VAdmireAsyncRouters: SysRouterMenu.VAdmireRoute[],
   Permissions: string[]
-): SysRouterMenu.VPlusRoute[] => {
-  const HandleVPlusAsyncRouters = filter(VPlusAsyncRouters, Permissions)
+): SysRouterMenu.VAdmireRoute[] => {
+  const HandleVAdmireAsyncRouters = filter(VAdmireAsyncRouters, Permissions)
 
-  return HandleVPlusAsyncRouters
+  return HandleVAdmireAsyncRouters
 }
 
 /**

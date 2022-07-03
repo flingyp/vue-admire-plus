@@ -6,7 +6,7 @@ export default [
     method: 'get',
     response: ({ query }) => {
       return {
-        name: 'VPlus',
+        name: 'VAdmire',
         version: '1.0.0'
       }
     }
@@ -16,7 +16,7 @@ export default [
     method: 'post',
     timeout: 3000,
     response: {
-      name: 'VPlus',
+      name: 'VAdmire',
       version: '1.0.0'
     }
   },

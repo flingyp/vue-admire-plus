@@ -1,5 +1,5 @@
 <template>
-  <VPlusTableCom
+  <VAdmireTableCom
     :table-header="TableHeaderData"
     :table-content="TableContentUser"
     :is-need-checkbox="true"
@@ -41,13 +41,13 @@
       <el-button type="info">导入</el-button>
       <el-button type="warning">导出</el-button>
     </template>
-  </VPlusTableCom>
+  </VAdmireTableCom>
 </template>
 
 <script setup lang="ts">
   import { reactive, ref } from 'vue'
   import { Action, ElMessageBox } from 'element-plus'
-  import VPlusTableCom from '@/components/VPlusTableCom.vue'
+  import VAdmireTableCom from '@/components/VAdmireTableCom.vue'
   import { getUserTableApi, IUser } from '@/apis/SysTableDemoApi'
 
   const TableHeaderData = [

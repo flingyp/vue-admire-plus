@@ -59,7 +59,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgFileCom: typeof import('./components/SvgFileCom.vue')['default']
-    VPlusTableCom: typeof import('./components/VPlusTableCom.vue')['default']
+    VAdmireTableCom: typeof import('./components/VAdmireTableCom.vue')['default']
   }
 }
 

@@ -14,8 +14,8 @@ import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 // 处理路由的相关函数
-import { filterAsyncVPlusRoute, mountRoute } from './utils/HandleAsyncVPlusRoute'
-import transformVPlusRouteToRouteRecordRaw from './utils/TransformVPlusRoute'
+import { filterAsyncVAdmireRoute, mountRoute } from './utils/HandleAsyncVAdmireRoute'
+import transformVAdmireRouteToRouteRecordRaw from './utils/TransformVAdmireRoute'
 import createSysMenuRecord from './utils/CreateSysMenu'
 
 // 所有的系统路由
@@ -41,24 +41,24 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
   const handleSysPermission = SysStore.SysBaseConfig.handleSysPermission as SysBasicConfig.SysHandlePermission
 
   // 2. 系统异步路由
-  let VPlusAsyncRouters: SysRouterMenu.VPlusRoute[] = []
+  let VAdmireAsyncRouters: SysRouterMenu.VAdmireRoute[] = []
   if (handleSysPermission === 'STATIC_PERMISSION') {
     // 前端静态异步路由表
-    VPlusAsyncRouters = lodash.cloneDeep(AsyncRouters)
+    VAdmireAsyncRouters = lodash.cloneDeep(AsyncRouters)
   } else if (handleSysPermission === 'DYNAMIC_PERMISSION') {
-    VPlusAsyncRouters = await SysStore.getUserAsyncRouterBasicServe()
+    VAdmireAsyncRouters = await SysStore.getUserAsyncRouterBasicServe()
   } else {
     // 前端静态异步路由表
-    VPlusAsyncRouters = lodash.cloneDeep(AsyncRouters)
+    VAdmireAsyncRouters = lodash.cloneDeep(AsyncRouters)
   }
 
-  // 过滤好的VPlus异步路由
-  const FilterSuccessVPlusAsyncRouters = filterAsyncVPlusRoute(VPlusAsyncRouters, Permissions)
+  // 过滤好的VAdmire异步路由
+  const FilterSuccessVAdmireAsyncRouters = filterAsyncVAdmireRoute(VAdmireAsyncRouters, Permissions)
 
   // 将所有路由表 转换为 VueRouter 路由表 RouteRecordRaw[]
-  const TransformToAsyncRouters = transformVPlusRouteToRouteRecordRaw(FilterSuccessVPlusAsyncRouters)
+  const TransformToAsyncRouters = transformVAdmireRouteToRouteRecordRaw(FilterSuccessVAdmireAsyncRouters)
 
-  const TransformToConstantRouters = transformVPlusRouteToRouteRecordRaw(ConstantRoutes)
+  const TransformToConstantRouters = transformVAdmireRouteToRouteRecordRaw(ConstantRoutes)
 
   // 3. 挂载路由
   TransformToAsyncRouters.forEach(route => {
@@ -67,9 +67,9 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
   // 4. 生成菜单
   const CreateSuccessSysMenuRecord = createSysMenuRecord([...TransformToConstantRouters, ...TransformToAsyncRouters])
   // 5. 初始化相关状态管理
-  SysRouteMenuStore.ConstantVPlusRouters = ConstantRoutes
-  SysRouteMenuStore.AsyncVPlusRouters = AsyncRouters
-  SysRouteMenuStore.MountedAsyncVPlusRouters = FilterSuccessVPlusAsyncRouters
+  SysRouteMenuStore.ConstantVAdmireRouters = ConstantRoutes
+  SysRouteMenuStore.AsyncVAdmireRouters = AsyncRouters
+  SysRouteMenuStore.MountedAsyncVAdmireRouters = FilterSuccessVAdmireAsyncRouters
   SysRouteMenuStore.AllRouterRecord = [...TransformToConstantRouters, ...TransformToAsyncRouters]
   SysRouteMenuStore.AllConstantRouterRecord = TransformToConstantRouters
   SysRouteMenuStore.AllAsyncRouterRecord = TransformToAsyncRouters

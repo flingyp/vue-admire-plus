@@ -1,5 +1,5 @@
 <div align="center">
-	<img width="200" height="200" src="https://gitee.com/xiaopeng77/typora-img/raw/master/img/VPlusAdminLogo.png" alt="VPlus Admin Logo" />
+	<img width="200" height="200" src="https://gitee.com/xiaopeng77/typora-img/raw/master/img/VAdmireAdminLogo.png" alt="VAdmire Plus Logo" />
   <h1>
     VAdmire Plus
   </h1>
@@ -29,7 +29,7 @@ Mock Server 内置模拟数据方案
 
 ## 预览
 
-- [Vue Admire Plus](https://vplus.yyblog.top/)
+- [Vue Admire Plus](https://VAdmire.yyblog.top/)
 
 ## 文档
 

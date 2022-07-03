@@ -59,7 +59,7 @@ export const userInfoApi = async () => {
  * @returns
  */
 export const userAsyncRouters = async () => {
-  const response = await $http.YPlusRequest<SysConfig.HttpResponse<SysRouterMenu.VPlusRoute[] | undefined>>({
+  const response = await $http.YPlusRequest<SysConfig.HttpResponse<SysRouterMenu.VAdmireRoute[] | undefined>>({
     url: '/user/asyncRouters',
     method: 'post',
     headers: {
