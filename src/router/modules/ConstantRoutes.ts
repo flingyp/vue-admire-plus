@@ -92,25 +92,6 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
     ]
   },
   {
-    path: '/test',
-    name: 'Test',
-    component: 'Layout',
-    meta: {
-      label: '测试'
-    },
-    children: [
-      {
-        path: '',
-        name: 'TestIndex',
-        component: '@/views/test/TestIndex.vue',
-        meta: {
-          label: '测试页面',
-          icon: 'file-icons:test-typescript'
-        }
-      }
-    ]
-  },
-  {
     path: '/common',
     name: 'Common',
     component: 'Layout',
@@ -204,24 +185,6 @@ const ConstantRoutes: SysRouterMenu.VPlusRoute[] = [
         }
       }
     ]
-  },
-  {
-    path: '/request',
-    name: 'Request',
-    component: '@/views/test/TestRequest.vue',
-    meta: {
-      label: '测试请求',
-      isShow: false
-    }
-  },
-  {
-    path: '/layout',
-    name: 'Layout',
-    component: 'Layout',
-    meta: {
-      label: '布局页面',
-      isShow: false
-    }
   }
 ]
 
