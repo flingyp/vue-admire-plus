@@ -6,6 +6,8 @@ import type { SysRouterMenu } from 'types/SysRouterMenu'
 import { RouteRecordRaw, RouteRecordRedirectOption } from 'vue-router'
 import lodash from 'lodash'
 
+import NotFound from '@/views/common/NotFound.vue'
+
 import { GlobFileModule } from './GlobModules'
 
 /**
@@ -36,7 +38,7 @@ const transform = (VPlusRoute: SysRouterMenu.VPlusRoute) => {
     path: VPlusRoute.path,
     name: VPlusRoute.name,
     meta: VPlusRoute.meta,
-    component: (VPlusRoute.component && GlobFileModule(VPlusRoute.component)) || undefined,
+    component: (VPlusRoute.component && GlobFileModule(VPlusRoute.component)) || NotFound, // 如果定义的路由路径在项目页面文件目录中不存在则返回404页面
     redirect: VPlusRoute.redirect && (VPlusRoute.redirect as RouteRecordRedirectOption)
   }
   if (VPlusRoute.children) {

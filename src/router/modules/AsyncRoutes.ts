@@ -35,6 +35,14 @@ const AsyncRouters: SysRouterMenu.VPlusRoute[] = [
         meta: {
           label: '均可访问权限页面'
         }
+      },
+      {
+        path: 'button',
+        name: 'Permission-Button',
+        component: '@/views/permission/ButtonIndex.vue',
+        meta: {
+          label: '按钮级权限指令控制'
+        }
       }
     ]
   }
