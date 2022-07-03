@@ -7,7 +7,7 @@
 
 ## 简介
 
-**Vue Admire Plus** 是一个免费开源的后台模块。使用了最新的主流开发技术，开箱即用后台解决方案，集成多种库插件。适合快速开发以及学习当前的最新的主流开发技术
+**Vue Admire Plus** 是一个免费开源的后台模板。使用了最新的主流开发技术，开箱即用后台解决方案，集成多种库插件。适合快速开发以及学习当前的最新的主流开发技术
 
 ## 特性
 
@@ -56,3 +56,17 @@ Mock Server 内置模拟数据方案
   - Mock 模式打包：`pnpm build:mock`
 
   - 非 Mock 模式打包：`pnpm build`
+
+## 相关预览图
+
+![Login.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d10da34008f14c4eb104d0097e785160~tplv-k3u1fbpfcp-watermark.image?)
+
+![About.jpg](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96810aae794e4f36abf476829bfed491~tplv-k3u1fbpfcp-watermark.image?)
+
+![AboutDark.jpg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b08c0fb89cb64c5cab7af83f71f5688f~tplv-k3u1fbpfcp-watermark.image?)
+
+![SysSetting.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45ae7077d3084333a4db4a694d26afa7~tplv-k3u1fbpfcp-watermark.image?)
+
+![Table.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24144f6a693b46749a004b6de3766012~tplv-k3u1fbpfcp-watermark.image?)
+
+![TableDark.jpg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c26e21fa9d44399a41120c29c2cc5ea~tplv-k3u1fbpfcp-watermark.image?)
