@@ -101,6 +101,14 @@ export default [
                   meta: {
                     label: '均可访问权限页面'
                   }
+                },
+                {
+                  path: 'button',
+                  name: 'Permission-Button',
+                  component: '@/views/permission/ButtonIndex.vue',
+                  meta: {
+                    label: '按钮级权限指令控制'
+                  }
                 }
               ]
             }
@@ -136,6 +144,14 @@ export default [
                   component: '@/views/permission/CommonIndex.vue',
                   meta: {
                     label: '均可访问权限页面'
+                  }
+                },
+                {
+                  path: 'button',
+                  name: 'Permission-Button',
+                  component: '@/views/permission/ButtonIndex.vue',
+                  meta: {
+                    label: '按钮级权限指令控制'
                   }
                 }
               ]
