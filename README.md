@@ -1,5 +1,5 @@
 <div align="center">
-	<img width="200" height="200" src="https://gitee.com/xiaopeng77/typora-img/raw/master/img/VAdmireAdminLogo.png" alt="VAdmire Plus Logo" />
+	<img width="200" height="200" src="https://gitee.com/xiaopeng77/typora-img/raw/master/img/VPlusAdminLogo.png" alt="VAdmire Plus Logo" />
   <h1>
     VAdmire Plus
   </h1>
