@@ -109,6 +109,16 @@ const ConstantRoutes: SysRouterMenu.VAdmireRoute[] = [
           icon: 'ep:element-plus'
         }
       },
+
+      {
+        path: 'table',
+        name: 'Table',
+        component: '@/views/common/VAdmireTable.vue',
+        meta: {
+          label: '常用模块-表格',
+          icon: 'bx:table'
+        }
+      },
       {
         path: '404',
         name: 'Common404',
@@ -119,12 +129,12 @@ const ConstantRoutes: SysRouterMenu.VAdmireRoute[] = [
         }
       },
       {
-        path: 'table',
-        name: 'Table',
-        component: '@/views/common/VAdmireTable.vue',
+        path: '500',
+        name: 'Common500',
+        component: '@/views/common/ServerError.vue',
         meta: {
-          label: '常用模块-表格',
-          icon: 'bx:table'
+          label: '500页面',
+          icon: 'raphael:500px'
         }
       }
     ]
