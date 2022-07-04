@@ -1,3 +1,9 @@
+# [1.1.0](https://github.com/flingyp/vue-plus-admin/compare/v1.0.0...v1.1.0) (2022-07-04)
+
+### ✨ Features | 新功能
+
+- **changelog.md:** 添加项目变更记录日志 ([15dacd2](https://github.com/flingyp/vue-plus-admin/commit/15dacd2))
+
 # [1.0.0](https://github.com/flingyp/vue-plus-admin/compare/82a056c...v1.0.0) (2022-07-03)
 
 ### ⚡ Performance Improvements | 性能优化
