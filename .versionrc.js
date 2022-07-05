@@ -1,5 +1,3 @@
-const compareFunc = require('compare-func')
-
 module.exports = {
   writerOpts: {
     transform: (commit, context) => {
@@ -80,7 +78,7 @@ module.exports = {
     groupBy: 'type',
     commitGroupsSort: 'title',
     commitsSort: ['scope', 'subject'],
-    noteGroupsSort: 'title',
-    notesSort: compareFunc
+    noteGroupsSort: 'title'
+    // notesSort: compareFunc
   }
 }
