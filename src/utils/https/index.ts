@@ -7,9 +7,7 @@
  */
 
 import { YPlusRequestParams } from 'types/ExtendAxiosInstance'
-
 import { ElLoading, ElMessage } from 'element-plus'
-
 import AxiosRequest from './CreateRequestInstance'
 
 /**

@@ -12,8 +12,7 @@
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"src/**/*.{vue,css,less,scss,sass}\"",
     "prepare": "husky install",
-    "commit": "git-cz",
-    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js"
+    "commit": "git-cz"
   },
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
@@ -44,10 +43,6 @@
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "@vitejs/plugin-vue": "^2.3.3",
-    "compare-func": "^2.0.0",
-    "conventional-changelog": "^3.1.25",
-    "conventional-changelog-cli": "^2.2.2",
-    "conventional-changelog-custom-config": "^0.3.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",

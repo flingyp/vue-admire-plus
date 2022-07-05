@@ -9,6 +9,6 @@ namespace SysBasicConfig {
     title: string // 系统名称
     logo: string // 系统Logo路径
     layoutMode: SysLayoutMode // 布局模式
-    handleSysPermission: SysHandlePermission
+    handleSysPermission: SysHandlePermission // 权限控制方式
   }
 }
