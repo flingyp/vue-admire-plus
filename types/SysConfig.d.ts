@@ -24,6 +24,7 @@ namespace SysConfig {
     isNeedReload: boolean // 页面是否需要重新加载
     customHeaderHeight: number // 自定义头部高度
     customTagHeight: number // 自定义Tag高度
+    pageTransition: string // 页面切换动画
   }
 
   // 统一响应数据结构

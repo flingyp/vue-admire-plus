@@ -58,7 +58,8 @@ export const UseSysStore = defineStore('SysStore', {
         primaryColorGather: undefined,
         isNeedReload: false,
         customHeaderHeight: 60,
-        customTagHeight: 50
+        customTagHeight: 50,
+        pageTransition: 'fade-slide'
       },
       SysUserInfo: {}
     }

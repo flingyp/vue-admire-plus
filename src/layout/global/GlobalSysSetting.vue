@@ -65,6 +65,7 @@
       <div class="flex justify-between items-center view-function-item">
         <label class="text-[14px]">头部高度</label>
         <el-input-number
+          class="w-[120px]"
           v-model="CustomHeaderHeight"
           :min="MixHeaderHeight"
           :max="MaxHeaderHeight"
@@ -74,18 +75,30 @@
       <div class="flex justify-between items-center view-function-item">
         <label class="text-[14px]">标签页高度</label>
         <el-input-number
+          class="w-[120px]"
           v-model="CustomTagHeight"
           :min="MixTagHeight"
           :max="MaxTagHeight"
           @change="handleTagHeightChange"
         />
       </div>
+      <div class="flex justify-between items-center view-function-item">
+        <label class="text-[14px]">页面切换动画</label>
+        <el-select v-model="SysStore.SysConfig.pageTransition" class="w-[160px]" placeholder="Select">
+          <el-option
+            v-for="item in MainPageTransitionAnimation"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+      </div>
     </GlobalSettingItem>
   </el-drawer>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted } from 'vue'
+  import { ref, computed, reactive } from 'vue'
   import { UseSysStore } from '@/store/modules/SysStore'
   import { render } from '@/utils/common/IconifyRenderComponent'
 
@@ -143,15 +156,50 @@
   const CustomHeaderHeight = ref(SysStore.SysConfig.customHeaderHeight)
   const MixHeaderHeight = ref(50)
   const MaxHeaderHeight = ref(70)
-  const handleHeaderHeightChange = (value: number) => {
-    SysStore.SysConfig.customHeaderHeight = value
+  const handleHeaderHeightChange = (value: number | undefined) => {
+    if (value) {
+      SysStore.SysConfig.customHeaderHeight = value
+    }
   }
   const CustomTagHeight = ref(SysStore.SysConfig.customTagHeight)
   const MixTagHeight = ref(40)
   const MaxTagHeight = ref(60)
-  const handleTagHeightChange = (value: number) => {
-    SysStore.SysConfig.customTagHeight = value
+  const handleTagHeightChange = (value: number | undefined) => {
+    if (value) {
+      SysStore.SysConfig.customTagHeight = value
+    }
   }
+  // 系统内置页面切换动画
+  const MainPageTransitionAnimation = reactive([
+    {
+      value: 'fade',
+      label: '消退'
+    },
+    {
+      value: 'fade-slide',
+      label: '向右滑动消退'
+    },
+    {
+      value: 'fade-bottom',
+      label: '向下滑动消退'
+    },
+    {
+      value: 'fade-top',
+      label: '向上滑动消退'
+    },
+    {
+      value: 'fade-scale',
+      label: '缩放消退'
+    },
+    {
+      value: 'zoom-fade',
+      label: '放大消退'
+    },
+    {
+      value: 'zoom-out',
+      label: '缩小放大'
+    }
+  ])
 
   // 最后部分：关闭系统抽屉
   const handleClose = () => {

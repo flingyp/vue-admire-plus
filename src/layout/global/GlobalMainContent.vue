@@ -1,9 +1,8 @@
 <template>
   <!-- 菜单标签页记录 -->
   <GlobalTagPageRecord></GlobalTagPageRecord>
-  <!-- TODO: 动态配置动画效果 -->
   <router-view v-slot="{ Component, route }" v-if="!SysStore.SysConfig.isNeedReload">
-    <transition name="fade-slide" mode="out-in" appear>
+    <transition :name="SysStore.SysConfig.pageTransition" mode="out-in" appear>
       <keep-alive v-if="route.meta.cache == null || route.meta.cache"
         ><component
           :is="Component"
