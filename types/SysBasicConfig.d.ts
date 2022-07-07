@@ -10,5 +10,6 @@ namespace SysBasicConfig {
     logo: string // 系统Logo路径
     layoutMode: SysLayoutMode // 布局模式
     handleSysPermission: SysHandlePermission // 权限控制方式
+    whiteRouteByName: string[] // 白名单
   }
 }

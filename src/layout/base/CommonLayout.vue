@@ -1,25 +1,27 @@
 <template>
-  <!-- 系统布局容器 -->
-  <BasicLayoutSlot>
-    <template #header>
-      <keep-alive>
-        <Component :is="CurrentLayoutModeHeader" class="h-full"></Component>
-      </keep-alive>
-    </template>
-    <template #aside>
-      <!-- 菜单模式-侧边（左侧菜单模式、顶部混合菜单模式） -->
-      <KeepAlive>
-        <Component :is="CurrentLayoutModeAside"></Component>
-      </KeepAlive>
-    </template>
-    <template #main>
-      <KeepAlive>
-        <Component :is="GlobalMainContent"></Component>
-      </KeepAlive>
-    </template>
-  </BasicLayoutSlot>
-  <!-- 系统相关配置组件 -->
-  <GlobalSysSetting></GlobalSysSetting>
+  <el-container>
+    <!-- 系统布局容器 -->
+    <BasicLayoutSlot>
+      <template #header>
+        <keep-alive>
+          <Component :is="CurrentLayoutModeHeader" class="h-full"></Component>
+        </keep-alive>
+      </template>
+      <template #aside>
+        <!-- 菜单模式-侧边（左侧菜单模式、顶部混合菜单模式） -->
+        <KeepAlive>
+          <Component :is="CurrentLayoutModeAside"></Component>
+        </KeepAlive>
+      </template>
+      <template #main>
+        <KeepAlive>
+          <Component :is="GlobalMainContent"></Component>
+        </KeepAlive>
+      </template>
+    </BasicLayoutSlot>
+    <!-- 系统相关配置组件 -->
+    <GlobalSysSetting></GlobalSysSetting>
+  </el-container>
 </template>
 
 <script setup lang="ts">

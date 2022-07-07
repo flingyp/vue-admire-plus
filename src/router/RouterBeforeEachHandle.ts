@@ -8,8 +8,10 @@ import type { RouteRecordRaw } from 'vue-router'
 import lodash from 'lodash'
 
 import { SysRouterMenu } from 'types/SysRouterMenu'
+
 import { UseSysStore } from '@/store/modules/SysStore'
 import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
+import { SysBaseConfig } from '@/SysBasicConfig'
 
 import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
@@ -20,7 +22,6 @@ import createSysMenuRecord from './utils/CreateSysMenu'
 
 // 所有的系统路由
 import ConstantRoutes, { Redirect404Router } from './modules/ConstantRoutes'
-
 import AsyncRouters from './modules/AsyncRoutes'
 
 /**
@@ -90,8 +91,7 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
  */
 
 // 白名单路由（不需要token，定义路由name）
-// TODO: 白名单的配置可以提取到 SysGlobalConfig 中 用户自定义配置  LoginIndex 也不能写死
-const whiteRouteByName: string[] = ['LoginIndex']
+const { whiteRouteByName } = SysBaseConfig
 
 export default async (
   to: RouteLocationNormalized,
