@@ -149,6 +149,14 @@ const ConstantRoutes: SysRouterMenu.VAdmireRoute[] = [
     },
     children: [
       {
+        path: 'iconify',
+        name: 'PluginIconify',
+        component: '@/views/plugins/IconifyPlugin.vue',
+        meta: {
+          label: 'Iconify图标'
+        }
+      },
+      {
         path: 'echart',
         name: 'PluginEchart',
         component: '@/views/plugins/EchartPlugin.vue',
