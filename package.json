@@ -33,7 +33,8 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.0.14",
     "vue": "^3.2.25",
-    "vue-router": "^4.0.15"
+    "vue-router": "^4.0.15",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.1",

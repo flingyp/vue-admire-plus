@@ -201,6 +201,15 @@ const ConstantRoutes: SysRouterMenu.VAdmireRoute[] = [
           label: '腾讯地图',
           icon: 'carbon:map-center'
         }
+      },
+      {
+        path: 'excelHandle',
+        name: 'ExcelHandle',
+        component: '@/views/plugins/ExcelHandle.vue',
+        meta: {
+          label: 'Excel表格',
+          icon: 'icon-park:excel'
+        }
       }
     ]
   }

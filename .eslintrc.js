@@ -39,6 +39,8 @@ module.exports = {
         bundledDependencies: false
       }
     ],
-    'no-param-reassign': ['error', { props: false }]
+    'no-param-reassign': ['error', { props: false }],
+    'no-restricted-syntax': 'off',
+    'guard-for-in': 'off'
   }
 }
