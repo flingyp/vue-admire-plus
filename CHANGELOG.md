@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/flingyp/vue-plus-admin/compare/v1.3.0...v1.4.0) (2022-07-25)
+
+### Features
+
+- 添加 VAdmire Plus 文档 ([fe2670d](https://github.com/flingyp/vue-plus-admin/commit/fe2670dce01b3b3c785e027cbd86fffe5e169fa4))
+- 添加 Video 插件 ([a1b7f00](https://github.com/flingyp/vue-plus-admin/commit/a1b7f001b5a459459833588bb18a8486ebdfbada))
+
 ## [1.3.0](https://github.com/flingyp/vue-plus-admin/compare/v1.2.1...v1.3.0) (2022-07-20)
 
 ### Features
