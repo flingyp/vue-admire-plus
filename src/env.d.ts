@@ -14,3 +14,10 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+declare module 'vue3-video-play' {
+  import type { DefineComponent } from 'vue'
+
+  const component: DefineComponent<{}, {}, any>
+  export default component
+}

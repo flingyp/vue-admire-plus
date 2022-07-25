@@ -44,6 +44,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SvgFileCom: typeof import('./components/SvgFileCom.vue')['default']
     VAdmireTableCom: typeof import('./components/VAdmireTableCom.vue')['default']
+    VideoPlayCom: typeof import('./components/VideoPlayCom.vue')['default']
   }
 }
 

@@ -221,6 +221,15 @@ const ConstantRoutes: SysRouterMenu.VAdmireRoute[] = [
           label: 'Excel表格',
           icon: 'icon-park:excel'
         }
+      },
+      {
+        path: 'video',
+        name: 'PluginVideo',
+        component: '@/views/plugins/VideoPlugin.vue',
+        meta: {
+          label: '视频插件',
+          icon: 'akar-icons:video'
+        }
       }
     ]
   }
