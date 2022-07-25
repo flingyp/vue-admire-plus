@@ -88,6 +88,17 @@ const ConstantRoutes: SysRouterMenu.VAdmireRoute[] = [
           link: 'EXTERNAL_LINK',
           url: 'https://cn.vitejs.dev'
         }
+      },
+      {
+        path: 'vadmirePlus',
+        name: 'Docs-VAdmire',
+        component: 'Iframe',
+        meta: {
+          label: 'VAdmire Plus（内链）',
+          icon: 'iconoir:google-docs',
+          link: 'INTERNAL_LINK',
+          url: 'https://docs.vadmire.top'
+        }
       }
     ]
   },
